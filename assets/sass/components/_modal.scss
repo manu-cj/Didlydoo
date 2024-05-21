@@ -1,6 +1,89 @@
-#modal-section {
+@import "../extends/flex_extends";
+
+.modal-section {
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 90vh;
+    height: 100%;
+    background-color: rgba(151, 151, 152, 0.54);
+    z-index: 10;
+    @extend .flexColumnCenterCenter;
+
+    .modal-div {
+        width: 450px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        
+        .close-div {
+            width: 100%;
+            padding: 5px;
+            @extend .flexRowEndCenter;
+
+            .fa-times {
+                color: tomato;
+                font-size: 25px;
+                cursor: pointer;
+                &:hover {
+                    color: #ff4000;
+                }
+            }
+        }
+    
+        form {
+            width: 100%;
+            @extend .flexColumnAroundCenter;
+
+            label {
+                color: black;
+                font-weight: bold;
+            }
+
+            :where(input, textarea) {
+                border-radius: 5px;
+                padding: 5px 10px;
+                border: 2px black solid;
+                background-color: rgb(234, 234, 234);
+            }
+
+            :where(input:focus, textarea:focus) {
+                background-color: wheat;
+            }
+
+            #input-event-name {
+                width: 70%;
+            }
+
+            :where(#input-date-start, #input-date-end) {
+                padding: 5px 10px;
+            }
+
+            #input-submit {
+                width: 100%;
+                padding: 10px 20px;
+                margin-top: 30px;
+                border: none;
+                background-color: $colorBackgroundLight;
+                cursor: pointer;
+                &:hover {
+                    background-color: lightgreen;
+                }
+            }
+
+            .date-form-div {
+                width: 100%;
+                height: 50px;
+                margin: 15px 30px;
+                padding: 10px 20px;
+                @extend .flexRowAroundCenter;
+                :where(.start-date, .end-date ) {
+                    @extend .flexColumnAroundCenter;
+                }
+                
+            }
+        }
+    }
 }
 
 #button {
