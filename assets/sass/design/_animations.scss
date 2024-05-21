@@ -1,0 +1,93 @@
+.introFadeIn {
+    animation:introFadeIn 0.5s linear forwards;
+}
+@keyframes introFadeIn {
+    0%{
+        opacity:0;
+        filter:blur(10px);
+    }
+    100%{
+        opacity:1;
+        filter:blur(0);
+    }
+}
+
+.introTitle {
+    animation:introTitle 1.5s ease-out;
+}
+@keyframes introTitle {
+    0%{
+        opacity:0;
+        transform: translateY(-1000px);
+    }
+    100%{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+.introDarkmode {
+    animation:introDarkmode 1s ease-out forwards;
+}
+@keyframes introDarkmode {
+    0%{
+        transform:translateX(1000px);
+        opacity:0;
+        filter:blur(10px);
+    }
+    100%{
+        transform:translateX(0);
+        opacity:1;
+        filter:blur(0);
+    }
+}
+
+.introAddEvent {
+    opacity:0;
+    animation:introAddEvent 1s 1s ease-out forwards;
+}
+@keyframes introAddEvent {
+    0%{
+        transform:translateX(-1000px);
+        opacity:0;
+        filter:blur(10px);
+    }
+    100%{
+        transform:translateX(0);
+        opacity:1;
+        filter:blur(0);
+    }
+}
+
+.introFooter {
+    opacity:0;
+    animation:introFooter 1s 1s ease-out forwards;
+}
+@keyframes introFooter {
+    0%{
+        transform:translateY(1000px);
+        opacity:0;
+        filter:blur(10px);
+    }
+    100%{
+        transform:translateY(0);
+        opacity:1;
+        filter:blur(0);
+    }
+}
+
+.titleJump {
+    display: inline-block;
+    animation:titleJump 0.3s ease-in-out;
+}
+@keyframes titleJump {
+    0%{
+        transform:translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}

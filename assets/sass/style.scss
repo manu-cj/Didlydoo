@@ -4,9 +4,14 @@
 @import "components/_components_dir";
 
 
+
 body {
     font-family: Ubuntu;
     color:var(--colorText);
     background-color: var(--colorBackground);
+
+    overflow: hidden;
+    opacity:0;
 }
+
 

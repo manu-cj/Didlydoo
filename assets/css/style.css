@@ -329,14 +329,136 @@ template {
   display: none;
 }
 
+.introFadeIn {
+  animation: introFadeIn 0.5s linear forwards;
+}
+
+@keyframes introFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.introTitle {
+  animation: introTitle 1.5s ease-out;
+}
+
+@keyframes introTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.introDarkmode {
+  animation: introDarkmode 1s ease-out forwards;
+}
+
+@keyframes introDarkmode {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.introAddEvent {
+  opacity: 0;
+  animation: introAddEvent 1s 1s ease-out forwards;
+}
+
+@keyframes introAddEvent {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.introFooter {
+  opacity: 0;
+  animation: introFooter 1s 1s ease-out forwards;
+}
+
+@keyframes introFooter {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.titleJump {
+  display: inline-block;
+  animation: titleJump 0.3s ease-in-out;
+}
+
+@keyframes titleJump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.glow {
+  filter: drop-shadow(0px 0px 10px var(--colorText));
+}
+
 html[data-theme=light] {
   --colorBackground:#FFD817;
   --colorText:black;
+  --color1:#E06D06;
+  --color2:#87BCDE;
+  --color3:#95B2B8;
 }
 
 html[data-theme=dark] {
   --colorBackground:black;
   --colorText:#FFD817;
+  --color1:#E06D06;
+  --color2:#87BCDE;
+  --color3:#95B2B8;
+}
+
+.svgLight {
+  transition: none;
+  filter: invert(0%) sepia(0%) saturate(7456%) hue-rotate(122deg) brightness(91%) contrast(97%);
+}
+
+.svgDark {
+  transition: none;
+  filter: invert(88%) sepia(78%) saturate(6379%) hue-rotate(332deg) brightness(96%) contrast(110%);
+}
+
+.becodeLogoLight {
+  filter: contrast(200%) brightness(150%) hue-rotate(180deg) invert(100%);
+}
+
+.becodeLogoDark {
+  filter: contrast(200%) brightness(150%) hue-rotate(240deg) grayscale(0);
 }
 
 @font-face {
@@ -355,11 +477,48 @@ body {
   font-family: Ubuntu;
 }
 
-main {
-  height: 90vh;
+footer {
+  width: 100%;
+  height: 5dvh;
+  padding: 0% 5% 0% 5%;
+}
+footer #socials {
+  width: 55%;
+  height: 100%;
+}
+footer #socials div {
+  cursor: pointer;
+  transition: 0.3s;
+}
+footer #socials div img {
+  width: 25%;
+  height: 50%;
+}
+footer #socials div p {
+  text-align: center;
+}
+footer #socials div:hover {
+  transform: scale(110%);
+}
+footer #becode {
+  width: 20%;
+  height: 100%;
+}
+footer #becode img {
+  height: 40%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+footer #becode img:hover {
+  transform: scale(110%);
 }
 
-.flexCenterCenter {
+main {
+  width: 100%;
+  height: 80dvh;
+}
+
+.flexCenterCenter, header, footer #socials div, footer #becode {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -371,7 +530,7 @@ main {
   align-items: center;
 }
 
-.flexBetweenCenter {
+.flexBetweenCenter, footer, footer #socials {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -527,8 +686,126 @@ main {
   border: 2px black solid;
 }
 
+.flexCenterCenter, footer #socials div, footer #becode, header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexAroundCenter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexBetweenCenter, footer, footer #socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexEndCenter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flexColumnCenterCenter, .modal-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexColumnAroundCenter, .modal-section .modal-div form, .modal-section .modal-div form .date-form-div :where(.start-date, .end-date) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexColumnBetweenCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexRowEndCenter, .modal-section .modal-div .close-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flexRowAroundCenter, .modal-section .modal-div form .date-form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absoluteTopLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.backgroundImageDefault {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  width: 100%;
+  height: 15dvh;
+  position: relative;
+}
+header h1 {
+  font-family: Goldman;
+}
+header #darkmodeButton {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  height: 17%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+header #darkmodeButton:hover {
+  transform: scale(120%);
+}
+header #addEventButton {
+  position: absolute;
+  bottom: 0;
+  right: 15%;
+  font-weight: 800;
+  padding: 1px 8px 1px 8px;
+  border: solid 2px var(--colorText);
+  border-radius: 50px;
+  background-color: var(--colorBackground);
+  cursor: pointer;
+  transition: 0.3s;
+}
+header #addEventButton:hover {
+  transform: scale(110%);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1529411765);
+  color: var(--colorBackground);
+  background-color: var(--colorText);
+}
+
 body {
   font-family: Ubuntu;
   color: var(--colorText);
   background-color: var(--colorBackground);
+  overflow: hidden;
+  opacity: 0;
 }/*# sourceMappingURL=style.css.map */
