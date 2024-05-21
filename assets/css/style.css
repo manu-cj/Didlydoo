@@ -462,6 +462,9 @@ header #addEventButton {
   position: absolute;
   bottom: 0;
   right: 15%;
+  font-weight: 800;
+  padding: 1px 8px 1px 8px;
+  border: solid 2px var(--colorText);
   border-radius: 50px;
   background-color: var(--colorBackground);
   cursor: pointer;
@@ -469,7 +472,7 @@ header #addEventButton {
 }
 header #addEventButton:hover {
   transform: scale(110%);
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2196078431);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1529411765);
 }
 
 body {

@@ -29,6 +29,11 @@ header {
         bottom:0;
         right:15%;
 
+        font-weight: 800;
+
+        padding:1px 8px 1px 8px;
+
+        border:solid 2px var(--colorText);
         border-radius: 50px;
         background-color: var(--colorBackground);
 
@@ -38,6 +43,6 @@ header {
     }
     #addEventButton:hover {
         transform:scale(110%);
-        box-shadow: 0px 0px 5px 5px #00000038;
+        box-shadow: 0px 0px 5px 5px #00000027;
     }
 }
