@@ -4,6 +4,7 @@
 @import "components/_components_dir";
 
 body {
-    overflow: hidden;
-    opacity:0;
+    font-family: Ubuntu;
+    color:var(--colorText);
+    background-color: var(--colorBackground);
 }

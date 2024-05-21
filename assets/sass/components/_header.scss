@@ -1,0 +1,43 @@
+@use "../extends/_extends_dir";
+
+header {
+    @include box(100%,15dvh);
+    @extend .flexCenterCenter;
+    position: relative;
+
+    h1 {
+        font-family: Goldman;
+    }
+
+    #darkmodeButton {
+        position:absolute;
+        top:3%;
+        right:3%;
+
+        height:20%;
+
+        transition:0.3s;
+
+        cursor: pointer;
+    }
+    #darkmodeButton:hover {
+        transform: scale(120%);
+    }
+
+    #addEventButton {
+        position: absolute;
+        bottom:0;
+        right:15%;
+
+        border-radius: 50px;
+        background-color: var(--colorBackground);
+
+        cursor:pointer;
+
+        transition:0.3s;
+    }
+    #addEventButton:hover {
+        transform:scale(110%);
+        box-shadow: 0px 0px 5px 5px #00000038;
+    }
+}

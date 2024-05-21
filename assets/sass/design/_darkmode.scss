@@ -1,0 +1,9 @@
+html[data-theme="light"] {
+    --colorBackground:#{$colorBackgroundLight};
+    --colorText:#{$colorTextLight};
+}
+
+html[data-theme="dark"] {
+    --colorBackground:#{$colorBackgroundDark};
+    --colorText:#{$colorTextDark};
+}
