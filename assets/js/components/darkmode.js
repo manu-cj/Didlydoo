@@ -39,6 +39,10 @@ function lightMode() {
         svg.classList.remove('svgDark')
         svg.classList.add('svgLight')
     });
+
+    const becode = document.querySelector('#becodeLogo')
+    becode.classList.remove('becodeLogoDark')
+    becode.classList.add('becodeLogoLight')
 }
 
 function darkmode() {
@@ -52,4 +56,8 @@ function darkmode() {
         svg.classList.remove('svgLight')
         svg.classList.add('svgDark')
     });
+
+    const becode = document.querySelector('#becodeLogo')
+    becode.classList.remove('becodeLogoLight')
+    becode.classList.add('becodeLogoDark')
 }
