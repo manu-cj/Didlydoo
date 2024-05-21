@@ -1,0 +1,42 @@
+.flexCenterCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexAroundCenter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flexBetweenCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexEndCenter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.flexColumnCenterCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.flexColumnAroundCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flexColumnBetweenCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
