@@ -7,3 +7,11 @@ html[data-theme="dark"] {
     --colorBackground:#{$colorBackgroundDark};
     --colorText:#{$colorTextDark};
 }
+
+.svgLight {
+    filter: invert(0%) sepia(0%) saturate(7456%) hue-rotate(122deg) brightness(91%) contrast(97%);
+}
+
+.svgDark {
+    filter: invert(88%) sepia(78%) saturate(6379%) hue-rotate(332deg) brightness(96%) contrast(110%);
+}

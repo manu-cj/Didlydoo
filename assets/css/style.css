@@ -339,6 +339,14 @@ html[data-theme=dark] {
   --colorText:#FFD817;
 }
 
+.svgLight {
+  filter: invert(0%) sepia(0%) saturate(7456%) hue-rotate(122deg) brightness(91%) contrast(97%);
+}
+
+.svgDark {
+  filter: invert(88%) sepia(78%) saturate(6379%) hue-rotate(332deg) brightness(96%) contrast(110%);
+}
+
 @font-face {
   font-family: "Goldman";
   src: url("../fonts/Goldman-Regular.ttf") format("truetype");
@@ -441,9 +449,9 @@ header h1 {
 }
 header #darkmodeButton {
   position: absolute;
-  top: 3%;
+  top: 5%;
   right: 3%;
-  height: 20%;
+  height: 17%;
   transition: 0.3s;
   cursor: pointer;
 }
