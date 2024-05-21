@@ -1,3 +1,5 @@
+import { sleep, createDiv } from "./functions.js";
+
 export async function intro() {
     document.body.classList.add('introFadeIn')
 
@@ -32,26 +34,6 @@ export async function intro() {
 
     for(let i=0; i<spans.length; i++) {
         spans[i].classList.add('titleJump')
-        await sleep(100)
+        await sleep(50)
     }
 }
-
-//------------------------------------------------------------------------------------------
-// SLEEP FUNCTION
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-//------------------------------------------------------------------------------------------
-// CREATE DIV
-function createDiv(type,parent,content,className) {
-    const newDiv=document.createElement(type);
-    if (content!=null) {
-      newDiv.innerHTML=content;
-    }
-    if (className!=null) {
-      newDiv.classList.add(className);
-    }
-    parent.appendChild(newDiv);
-    return newDiv;
-  }
