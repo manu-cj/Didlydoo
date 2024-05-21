@@ -1,10 +1,11 @@
 
 
-const addEventModal = () => {
-    const main = document.querySelectorAll('main');
+const addEventModal = (inputValue) => {
+    const main = document.querySelectorAll('body');
     const addEventButton = document.getElementById('addEventButton');
 
     const modalSection = document.createElement('section');
+    const modalDiv = document.createElement('div');
     const closeDiv = document.createElement('div');
     const form = document.createElement('form');
 
@@ -14,6 +15,10 @@ const addEventModal = () => {
     const labelDescription = document.createElement('label');
     const textareaDescription = document.createElement('textarea');
 
+    const dateFormDiv = document.createElement('div');
+    const startDiv = document.createElement('div');
+    const endDiv = document.createElement('div');
+
     const labelDateStart = document.createElement('label');
     const inputDateStart = document.createElement('input');
 
@@ -22,11 +27,16 @@ const addEventModal = () => {
 
     const inputSubmit = document.createElement('input');
 
+    // Desactivation du bouton
+    
+
     // Ajout des paramètres pour les éléments html
     modalSection.classList.add('modal-section');
 
+    modalDiv.classList.add('modal-div');
+
     closeDiv.classList.add('close-div');
-    closeDiv.innerHTML = '<i class="fas fa-times" style="color: #ff4000;"></i>';
+    closeDiv.innerHTML = '<i class="fas fa-times"></i>';
 
     form.method = 'post';
 
@@ -40,6 +50,12 @@ const addEventModal = () => {
     labelDescription.textContent = 'Event description :';
     textareaDescription.id = 'textarea-description';
     textareaDescription.placeholder = 'Add a description';
+    textareaDescription.cols = '35';
+    textareaDescription.rows = '5';
+
+    dateFormDiv.classList.add('date-form-div');
+    startDiv.classList.add('start-date');
+    endDiv.classList.add('end-date');
 
     labelDateStart.htmlFor = 'input-date-start';
     labelDateStart.textContent = 'Start :';
@@ -53,22 +69,26 @@ const addEventModal = () => {
 
     inputSubmit.id = 'input-submit';
     inputSubmit.type = 'submit';
-    inputSubmit.value = 'Add';
+    inputSubmit.value = inputValue;
 
     // Ajout des éléments au formulaire
     form.appendChild(labelInputName);
     form.appendChild(inputEventName);
     form.appendChild(labelDescription);
     form.appendChild(textareaDescription);
-    form.appendChild(labelDateStart);
-    form.appendChild(inputDateStart);
-    form.appendChild(labelDateEnd);
-    form.appendChild(inputDateEnd);
+    startDiv.appendChild(labelDateStart);
+    startDiv.appendChild(inputDateStart);
+    endDiv.appendChild(labelDateEnd);
+    endDiv.appendChild(inputDateEnd);
+    dateFormDiv.appendChild(startDiv);
+    dateFormDiv.appendChild(endDiv);
+    form.appendChild(dateFormDiv);
     form.appendChild(inputSubmit);
 
     // Ajout du formulaire à la section modale et la section modale au main
-    modalSection.appendChild(closeDiv);
-    modalSection.appendChild(form);
+    modalDiv.appendChild(closeDiv);
+    modalDiv.appendChild(form);
+    modalSection.appendChild(modalDiv);
     main[0].appendChild(modalSection);
 
     // Fermeture de la modal
