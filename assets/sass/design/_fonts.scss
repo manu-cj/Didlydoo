@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Goldman';
+    src:url('../fonts/Goldman-Regular.ttf') format('truetype')
+}
+@font-face {
+    font-family: 'GoldmanBold';
+    src:url('../fonts/Goldman-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('../fonts/Ubuntu_Sans/UbuntuSans-VariableFont_wdth,wght.ttf') format('truetype')
+}
+
+body {
+    font-family: Ubuntu;
+}
