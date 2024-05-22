@@ -27,7 +27,8 @@
 }
 
 .introDarkmode {
-    animation:introDarkmode 1s ease-out forwards;
+    transform:translateX(1000px);
+    animation:introDarkmode 2s 2s ease-out forwards;
 }
 @keyframes introDarkmode {
     0%{

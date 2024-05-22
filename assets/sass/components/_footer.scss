@@ -5,7 +5,7 @@ footer {
     padding: 0% 5% 0% 5%;
 
     #socials {
-        @include box(55%,100%);
+        @include box(60%,100%);
         @extend .flexBetweenCenter;
 
         @include responsive(700px) {
