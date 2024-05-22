@@ -65,7 +65,7 @@ const addEventModal = (inputValue) => {
     inputDateStart.type = 'date';
 
     addDate.type = 'button';
-    addDate.classList.add('add-date');
+    addDate.classList.add('add-delete-date','add-date');
     addDate.value ='Add date ➕';
 
     gestionDate.classList.add('gestion-date');
@@ -77,7 +77,7 @@ const addEventModal = (inputValue) => {
 
     inputSubmit.id = 'input-submit';
     inputSubmit.type = 'submit';
-    inputSubmit.value = inputValue;
+    inputSubmit.value = 'Add';
 
     // Ajout des éléments au formulaire
     form.appendChild(labelInputName);
@@ -102,7 +102,7 @@ const addEventModal = (inputValue) => {
 
     const deleteDate = document.createElement('input');
     deleteDate.type = 'button';
-    deleteDate.classList.add('add-date');
+    deleteDate.classList.add('add-delete-date','delete-date');
     deleteDate.value ='Delete date ➖';
 
     addDate.addEventListener('click', () => {
