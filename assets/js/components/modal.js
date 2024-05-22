@@ -183,7 +183,7 @@ const addEventModal = (inputValue, datas) => {
     })
 
     // Ajout de l'event + fermeture de la modale 
-    inputSubmit.addEventListener('click', () => {
+    form.addEventListener('submit', function() {
         modalSection.remove() ;
     // fetch API method post 
     // refresh 
