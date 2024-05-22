@@ -802,14 +802,14 @@ header h1 {
   cursor: cell;
 }
 header h1 span {
-  transition: 0.7s;
+  transition: 0.8s;
 }
 header h1 span:hover {
   transform: rotate(360deg);
 }
 header #darkmodeButton {
   position: absolute;
-  top: 5%;
+  top: 10%;
   right: 3%;
   height: 17%;
   transition: 0.3s;

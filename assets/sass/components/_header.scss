@@ -10,7 +10,7 @@ header {
         cursor: cell;
 
         span {
-            transition:0.7s;
+            transition:0.8s;
         }
         span:hover {
             transform: rotate(360deg);
@@ -19,7 +19,7 @@ header {
 
     #darkmodeButton {
         position:absolute;
-        top:5%;
+        top:10%;
         right:3%;
 
         height:17%;
