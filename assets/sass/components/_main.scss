@@ -1,3 +1,4 @@
 main {
     @include box(100%,80dvh);
+    overflow-y: scroll;
 }

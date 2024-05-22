@@ -52,7 +52,7 @@
             }
 
             #input-event-name {
-                width: 70%;
+                width: 80%;
             }
 
             .input-date{
@@ -73,7 +73,7 @@
                 transition: 0.3s;
                 &:hover {
                     color:var(--colorText);
-                    background-color: var(--colorBackground);
+                    background-color: var(--color1);
                 }
             }
 
