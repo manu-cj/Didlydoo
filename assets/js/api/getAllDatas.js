@@ -1,3 +1,6 @@
+import { displayAllEvents } from "./../components/displayAllEvents.js";
+
+
 const getAllDatas = (request) => {
     const url = `http://localhost:3000/api/${request}/`;
 
@@ -15,8 +18,8 @@ const getAllDatas = (request) => {
             throw new Error('Network response was not ok: ' + response.statusText);
         }
     })
-    .then(data => {
-        console.log(data);
+    .then(datas => {
+        displayAllEvents(datas);
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);

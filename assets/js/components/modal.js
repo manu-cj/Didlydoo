@@ -103,7 +103,7 @@ const addEventModal = (inputValue) => {
     const deleteDate = document.createElement('input');
     deleteDate.type = 'button';
     deleteDate.classList.add('add-delete-date','delete-date');
-    deleteDate.value ='Delete date ➖';
+    deleteDate.value ='➖ Delete date';
 
     addDate.addEventListener('click', () => {
         counterInputDate++;
