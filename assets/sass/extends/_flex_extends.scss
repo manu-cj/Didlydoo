@@ -48,9 +48,29 @@
     align-items: center;
 }
 
+.flexRowCenterCenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .flexRowAroundCenter {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.flexRowBetweenCenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.flexColumnBetweenStart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
