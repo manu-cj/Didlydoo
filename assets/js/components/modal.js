@@ -1,6 +1,6 @@
 
 
-const addEventModal = (inputValue) => {
+const addEventModal = (inputValue, datas) => {
     const main = document.querySelectorAll('body');
     const addEventButton = document.getElementById('addEventButton');
 
@@ -29,9 +29,6 @@ const addEventModal = (inputValue) => {
     const inputDateEnd = document.createElement('input');
 
     const inputSubmit = document.createElement('input');
-
-    // Desactivation du bouton
-    
 
     // Ajout des paramètres pour les éléments html
     modalSection.classList.add('modal-section');
@@ -77,7 +74,7 @@ const addEventModal = (inputValue) => {
 
     inputSubmit.id = 'input-submit';
     inputSubmit.type = 'submit';
-    inputSubmit.value = 'Add';
+    inputSubmit.value = inputValue;
 
     // Ajout des éléments au formulaire
     form.appendChild(labelInputName);
@@ -97,17 +94,44 @@ const addEventModal = (inputValue) => {
     modalSection.appendChild(modalDiv);
     main[0].appendChild(modalSection);
 
-    // Donne la possibilité de choisir plusieurs date
     let counterInputDate = 1;
-
     const deleteDate = document.createElement('input');
     deleteDate.type = 'button';
     deleteDate.classList.add('add-delete-date','delete-date');
     deleteDate.value ='➖ Delete date';
+    // Affichage des données lors de l'update
+    if (inputValue === 'update') {
+        inputEventName.value = datas.name;
+        textareaDescription.value = datas.description;
+        counterInputDate = datas.dates.length;
 
+        if (datas.dates.length > 1) {
+            dateFormDiv.innerHTML = "";
+            for (let i = 0; i < datas.dates.length; i++) {
+                gestionDate.insertBefore(deleteDate, gestionDate.firstChild);
+                gestionDate.style.justifyContent = 'space-between';
+                const data = datas.dates[i];
+                const dates = document.createElement('input');
+                dates.type = 'date';
+                dates.classList.add('input-date');
+                dates.value = data.date;
+
+                dateFormDiv.appendChild(dates);
+            }
+        }
+        else {
+            inputDateStart.value = datas.dates[0].date;
+        }
+
+        if (datas.dates.length > 5) {
+            addDate.remove();
+        }
+    }
+
+    // Donne la possibilité de choisir plusieurs date
     addDate.addEventListener('click', () => {
         counterInputDate++;
-
+        console.log(counterInputDate);
         gestionDate.insertBefore(deleteDate, gestionDate.firstChild);
         gestionDate.style.justifyContent = 'space-between';
 
@@ -116,7 +140,6 @@ const addEventModal = (inputValue) => {
         newInputDate.type = 'date';
         newInputDate.classList.add('input-date');
         dateFormDiv.appendChild(newInputDate);
-        console.log(counterInputDate);
         if (counterInputDate === 6) {
             addDate.remove();
         }
@@ -147,7 +170,7 @@ const addEventModal = (inputValue) => {
     
 
     // Fermeture de la modal
-    const closeModal = document.querySelector('.fa-times');
+    const closeModal = closeDiv.querySelector('i');
 
     closeModal.addEventListener('click', () => {
         modalSection.remove()
@@ -160,9 +183,12 @@ const addEventModal = (inputValue) => {
     })
 };
 
+
+
 function deleteEventModal() {
-    // code pour supprimer le modal ici
+    // code pour supprimer
 }
 
 export default addEventModal;
+
 export { deleteEventModal };
