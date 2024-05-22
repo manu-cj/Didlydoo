@@ -5,8 +5,16 @@ footer {
     padding: 0% 5% 0% 5%;
 
     #socials {
-        @include box(60%,100%);
+        @include box(70%,100%);
         @extend .flexBetweenCenter;
+
+        @include responsive(360px) {
+            width:65%;
+        }
+
+        @include responsive(500px) {
+            width:50%;
+        }
 
         @include responsive(700px) {
             width:35%;
@@ -31,6 +39,10 @@ footer {
 
             p {
                 text-align: center;
+                font-size: 0.8rem;
+                @include responsive(360px) {
+                    font-size: 1rem;
+                }
             }
         }
         div:hover {

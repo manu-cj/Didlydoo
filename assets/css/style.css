@@ -491,7 +491,7 @@ html[data-theme=dark] {
   --colorBackground:black;
   --colorText:#FFD817;
   --color1:#E06D06;
-  --color2:#1f252c;
+  --color2:#161a1f;
   --color3:#F1FFFA;
 }
 
@@ -535,8 +535,18 @@ footer {
   padding: 0% 5% 0% 5%;
 }
 footer #socials {
-  width: 60%;
+  width: 70%;
   height: 100%;
+}
+@media only screen and (min-width: 360px) {
+  footer #socials {
+    width: 65%;
+  }
+}
+@media only screen and (min-width: 500px) {
+  footer #socials {
+    width: 50%;
+  }
 }
 @media only screen and (min-width: 700px) {
   footer #socials {
@@ -563,6 +573,12 @@ footer #socials div img {
 }
 footer #socials div p {
   text-align: center;
+  font-size: 0.8rem;
+}
+@media only screen and (min-width: 360px) {
+  footer #socials div p {
+    font-size: 1rem;
+  }
 }
 footer #socials div:hover {
   transform: scale(110%);
@@ -793,9 +809,14 @@ header {
   position: relative;
 }
 header h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-family: Goldman;
   cursor: cell;
+}
+@media only screen and (min-width: 360px) {
+  header h1 {
+    font-size: 3.5rem;
+  }
 }
 header h1 span {
   transition: 0.8s;
@@ -806,18 +827,33 @@ header h1 span:hover {
 header #darkmodeButton {
   position: absolute;
   top: 10%;
-  right: 3%;
+  right: 0;
   height: 17%;
   transition: 0.3s;
   cursor: pointer;
 }
+@media only screen and (min-width: 480px) {
+  header #darkmodeButton {
+    right: 3%;
+  }
+}
 header #darkmodeButton:hover {
   transform: scale(120%);
 }
-header #addEventButton {
-  position: absolute;
-  bottom: -10%;
-  left: 5%;
+
+main #eventsList {
+  position: relative;
+  width: 90%;
+  margin: 50px auto auto auto;
+}
+@media only screen and (min-width: 900px) {
+  main #eventsList {
+    width: 900px;
+  }
+}
+main #eventsList #addEventButton {
+  align-self: start;
+  margin: 0 0 15px 0;
   font-weight: 800;
   padding: 1px 8px 1px 8px;
   border: solid 2px var(--colorText);
@@ -826,19 +862,14 @@ header #addEventButton {
   cursor: pointer;
   transition: 0.3s;
 }
-header #addEventButton:hover {
+@media only screen and (min-width: 900px) {
+  main #eventsList #addEventButton {
+    margin: 0 0 15px 5%;
+  }
+}
+main #eventsList #addEventButton:hover {
   color: var(--colorText);
   background-color: var(--color1);
-}
-
-main #eventsList {
-  width: 90%;
-  margin: 50px auto auto auto;
-}
-@media only screen and (min-width: 900px) {
-  main #eventsList {
-    width: 900px;
-  }
 }
 main #eventsList article {
   position: relative;

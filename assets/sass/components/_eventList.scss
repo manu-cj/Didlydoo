@@ -1,12 +1,38 @@
 main {
 
     #eventsList {
+        position: relative;
         width:90%;
         margin:50px auto auto auto;
         @extend .flexColumnCenterCenter;
 
         @include responsive(900px) {
             width:900px;
+        }
+
+        #addEventButton {
+            align-self: start;
+            margin:0 0 15px 0;
+
+            @include responsive(900px) {
+                margin:0 0 15px 5%;
+            }
+    
+            font-weight: 800;
+    
+            padding:1px 8px 1px 8px;
+    
+            border:solid 2px var(--colorText);
+            border-radius: 50px;
+            background-color: var(--colorBackground);
+    
+            cursor:pointer;
+    
+            transition:0.3s;
+        }
+        #addEventButton:hover {
+            color:var(--colorText);
+            background-color: var(--color1);
         }
 
         article {
