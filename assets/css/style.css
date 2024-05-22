@@ -549,7 +549,7 @@ main {
   align-items: center;
 }
 
-.flexColumnAroundCenter, .modal-section .modal-div form .date-form-div :where(.start-date, .end-date), .modal-section .modal-div form {
+.flexColumnAroundCenter, .modal-section .modal-div form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -570,11 +570,32 @@ main {
   align-items: center;
 }
 
-.flexRowAroundCenter, .modal-section .modal-div form .date-form-div {
+.flexRowCenterCenter, .modal-section .modal-div form .gestion-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRowAroundCenter {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.flexRowBetweenCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexColumnBetweenStart, .modal-section .modal-div form .date-form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .modal-section {
@@ -585,6 +606,7 @@ main {
   height: 100%;
   background-color: rgba(151, 151, 152, 0.54);
   z-index: 10;
+  border-radius: 5px;
 }
 .modal-section .modal-div {
   width: 450px;
@@ -618,15 +640,18 @@ main {
   background-color: rgb(234, 234, 234);
 }
 .modal-section .modal-div form :where(input:focus, textarea:focus) {
-  background-color: wheat;
+  background-color: white;
 }
 .modal-section .modal-div form #input-event-name {
   width: 70%;
 }
-.modal-section .modal-div form :where(#input-date-start, #input-date-end) {
+.modal-section .modal-div form .input-date {
   padding: 5px 10px;
 }
 .modal-section .modal-div form #input-submit {
+  position: relative;
+  top: 30px;
+  font-weight: bold;
   width: 100%;
   padding: 10px 20px;
   margin-top: 30px;
@@ -635,14 +660,32 @@ main {
   cursor: pointer;
 }
 .modal-section .modal-div form #input-submit:hover {
-  background-color: lightgreen;
+  background-color: #FFD817;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .modal-section .modal-div form .date-form-div {
-  width: 100%;
-  height: 50px;
+  width: 90%;
+  height: 150px;
   margin: 15px 30px;
   padding: 10px 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+.modal-section .modal-div form .gestion-date {
+  width: 90%;
+}
+.modal-section .modal-div form .gestion-date .add-date {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  transition: ease-in-out 0.5s;
+}
+.modal-section .modal-div form .gestion-date .add-date:hover {
+  background-color: #FFD817;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
 #button {
   width: 50px;
   height: 30px;
@@ -681,7 +724,7 @@ main {
   align-items: center;
 }
 
-.flexColumnAroundCenter, .modal-section .modal-div form, .modal-section .modal-div form .date-form-div :where(.start-date, .end-date) {
+.flexColumnAroundCenter, .modal-section .modal-div form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -702,11 +745,32 @@ main {
   align-items: center;
 }
 
-.flexRowAroundCenter, .modal-section .modal-div form .date-form-div {
+.flexRowCenterCenter, .modal-section .modal-div form .gestion-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRowAroundCenter {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.flexRowBetweenCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexColumnBetweenStart, .modal-section .modal-div form .date-form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .absoluteCenter {
