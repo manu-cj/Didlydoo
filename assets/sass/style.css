@@ -329,6 +329,151 @@ template {
   display: none;
 }
 
+.introFadeIn {
+  animation: introFadeIn 0.5s linear forwards;
+}
+
+@keyframes introFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.introTitle {
+  animation: introTitle 1.5s ease-out;
+}
+
+@keyframes introTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.introDarkmode {
+  animation: introDarkmode 1s ease-out forwards;
+}
+
+@keyframes introDarkmode {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.introAddEvent {
+  opacity: 0;
+  animation: introAddEvent 1s 1s ease-out forwards;
+}
+
+@keyframes introAddEvent {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.introFooter {
+  opacity: 0;
+  animation: introFooter 1s 1s ease-out forwards;
+}
+
+@keyframes introFooter {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.titleJump {
+  display: inline-block;
+  animation: titleJump 0.3s ease-in-out;
+}
+
+@keyframes titleJump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.cat1 {
+  animation: cat1 0.5s ease-out;
+}
+
+@keyframes cat1 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.cat2 {
+  animation: cat2 0.5s ease-out;
+}
+
+@keyframes cat2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.cat3 {
+  animation: cat3 0.5s linear;
+}
+
+@keyframes cat3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(-45deg);
+  }
+  60% {
+    transform: rotate(45deg);
+  }
+  80% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
 .glow {
   filter: drop-shadow(0px 0px 10px var(--colorText));
 }
@@ -392,13 +537,28 @@ footer #socials {
   width: 55%;
   height: 100%;
 }
+@media only screen and (min-width: 700px) {
+  footer #socials {
+    width: 35%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  footer #socials {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  footer #socials {
+    width: 20%;
+  }
+}
 footer #socials div {
   cursor: pointer;
   transition: 0.3s;
 }
 footer #socials div img {
-  width: 25%;
-  height: 50%;
+  width: 25px;
+  height: 40px;
 }
 footer #socials div p {
   text-align: center;
@@ -424,65 +584,6 @@ main {
   height: 80dvh;
 }
 
-.flexCenterCenter, header, footer #socials div, footer #becode {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexAroundCenter {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.flexBetweenCenter, footer, footer #socials {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexEndCenter {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.flexColumnCenterCenter, .modal-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexColumnAroundCenter, .modal-section .modal-div form .date-form-div :where(.start-date, .end-date), .modal-section .modal-div form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.flexColumnBetweenCenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexRowEndCenter, .modal-section .modal-div .close-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.flexRowAroundCenter, .modal-section .modal-div form .date-form-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .modal-section {
   position: fixed;
   left: 0;
@@ -493,29 +594,32 @@ main {
   z-index: 10;
 }
 .modal-section .modal-div {
-  width: 450px;
-  border-radius: 5px;
-  background-color: whitesmoke;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  position: relative;
+  width: 400px;
+  width: 400px;
+  height: 550px;
+  border-radius: 15px;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
 }
 .modal-section .modal-div .close-div {
   width: 100%;
-  padding: 5px;
+  padding: 15px 15px 0 0;
 }
 .modal-section .modal-div .close-div .fa-times {
-  color: tomato;
+  color: var(--colorText);
   font-size: 25px;
   cursor: pointer;
 }
 .modal-section .modal-div .close-div .fa-times:hover {
-  color: #ff4000;
+  color: var(--color1);
 }
 .modal-section .modal-div form {
   width: 100%;
 }
 .modal-section .modal-div form label {
-  color: black;
   font-weight: bold;
+  margin-top: 20px;
 }
 .modal-section .modal-div form :where(input, textarea) {
   border-radius: 5px;
@@ -524,36 +628,62 @@ main {
   background-color: rgb(234, 234, 234);
 }
 .modal-section .modal-div form :where(input:focus, textarea:focus) {
-  background-color: wheat;
+  background-color: white;
 }
 .modal-section .modal-div form #input-event-name {
   width: 70%;
 }
-.modal-section .modal-div form :where(#input-date-start, #input-date-end) {
+.modal-section .modal-div form .input-date {
   padding: 5px 10px;
+  width: 48%;
 }
 .modal-section .modal-div form #input-submit {
-  width: 100%;
-  padding: 10px 20px;
-  margin-top: 30px;
-  border: none;
-  background-color: #FFD817;
+  position: absolute;
+  bottom: -50px;
+  font-weight: bold;
+  padding: 20px 16px 20px 16px;
+  border: solid 15px var(--colorBackground);
+  color: var(--colorBackground);
+  background-color: var(--colorText);
   cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 .modal-section .modal-div form #input-submit:hover {
-  background-color: lightgreen;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
 }
 .modal-section .modal-div form .date-form-div {
-  width: 100%;
-  height: 50px;
+  width: 90%;
+  height: 150px;
   margin: 15px 30px;
   padding: 10px 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-#button {
-  width: 50px;
-  height: 30px;
-  background-color: aquamarine;
-  border: 2px black solid;
+.modal-section .modal-div form .gestion-date {
+  width: 90%;
+}
+.modal-section .modal-div form .gestion-date .add-delete-date {
+  border: none;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal-section .modal-div form .gestion-date .add-delete-date:hover {
+  color: var(--color1);
+}
+.modal-section .modal-div form .gestion-date .add-date {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.modal-section .modal-div form .gestion-date .delete-date {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 
 .flexCenterCenter, footer #socials div, footer #becode, header {
@@ -587,7 +717,7 @@ main {
   align-items: center;
 }
 
-.flexColumnAroundCenter, .modal-section .modal-div form, .modal-section .modal-div form .date-form-div :where(.start-date, .end-date) {
+.flexColumnAroundCenter, .modal-section .modal-div form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -608,11 +738,32 @@ main {
   align-items: center;
 }
 
-.flexRowAroundCenter, .modal-section .modal-div form .date-form-div {
+.flexRowCenterCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRowAroundCenter {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.flexRowBetweenCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexColumnBetweenStart, .modal-section .modal-div form .date-form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .absoluteCenter {
@@ -641,10 +792,17 @@ header {
 }
 header h1 {
   font-family: Goldman;
+  cursor: cell;
+}
+header h1 span {
+  transition: 0.8s;
+}
+header h1 span:hover {
+  transform: rotate(360deg);
 }
 header #darkmodeButton {
   position: absolute;
-  top: 5%;
+  top: 10%;
   right: 3%;
   height: 17%;
   transition: 0.3s;
@@ -698,4 +856,5 @@ body {
   color: var(--colorText);
   background-color: var(--colorBackground);
   overflow: hidden;
+  opacity: 0;
 }/*# sourceMappingURL=style.css.map */

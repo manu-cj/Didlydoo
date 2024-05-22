@@ -158,6 +158,15 @@ const addEventModal = (inputValue) => {
             modalSection.remove()
         }
     })
+
+    // Ajout de l'event + fermeture de la modale 
+    inputSubmit.addEventListener('click', () => {
+        modalSection.remove() ;
+    // fetch API method post 
+    // refresh 
+
+
+    })
 };
 
 function deleteEventModal() {
