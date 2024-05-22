@@ -23,4 +23,4 @@ const getAllDatas = (request) => {
     });
 };
 
-export {getAllEvents};
+export {getAllDatas};
