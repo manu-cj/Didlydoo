@@ -9,7 +9,7 @@ const getAllDatas = (request) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-        }
+        },
     })
     .then(response => {
         if (response.ok) {
