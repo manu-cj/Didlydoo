@@ -91,3 +91,55 @@
         transform:translateY(0);
     }
 }
+
+// DANCING CATS
+.cat1 {
+    animation:cat1 0.5s ease-out;
+}
+@keyframes cat1 {
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+.cat2 {
+    animation:cat2 0.5s ease-out;
+}
+@keyframes cat2 {
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.cat3 {
+    animation:cat3 0.5s linear;
+}
+@keyframes cat3 {
+    0%{
+        transform:rotate(0deg);
+    }
+    20%{
+        transform: rotate(45deg);
+    }
+    40%{
+        transform: rotate(-45deg);
+    }
+    60%{
+        transform: rotate(45deg);
+    }
+    80%{
+        transform: rotate(-45deg);
+    }
+    100%{
+        transform: rotate(45deg);
+    }
+}

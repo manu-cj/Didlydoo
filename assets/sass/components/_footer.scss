@@ -8,13 +8,25 @@ footer {
         @include box(55%,100%);
         @extend .flexBetweenCenter;
 
+        @include responsive(700px) {
+            width:35%;
+        }
+
+        @include responsive(1000px) {
+            width:25%;
+        }
+
+        @include responsive(1440px) {
+            width:20%;
+        }
+
         div {
             @extend .flexCenterCenter;
             cursor:pointer;
             transition: 0.3s;
 
             img {
-            @include box(25%,50%);
+                @include box(25px,40px);
             }
 
             p {
