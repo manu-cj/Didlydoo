@@ -518,86 +518,6 @@ main {
   height: 80dvh;
 }
 
-.flexCenterCenter, header, footer #socials div, footer #becode {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexAroundCenter {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.flexBetweenCenter, footer, footer #socials {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexEndCenter {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.flexColumnCenterCenter, .modal-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexColumnAroundCenter, .modal-section .modal-div form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.flexColumnBetweenCenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexRowEndCenter, .modal-section .modal-div .close-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.flexRowCenterCenter, .modal-section .modal-div form .gestion-date {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexRowAroundCenter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.flexRowBetweenCenter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexColumnBetweenStart, .modal-section .modal-div form .date-form-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
 .modal-section {
   position: fixed;
   left: 0;
@@ -606,32 +526,34 @@ main {
   height: 100%;
   background-color: rgba(151, 151, 152, 0.54);
   z-index: 10;
-  border-radius: 5px;
 }
 .modal-section .modal-div {
-  width: 450px;
-  border-radius: 5px;
-  background-color: whitesmoke;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  position: relative;
+  width: 400px;
+  width: 400px;
+  height: 550px;
+  border-radius: 15px;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
 }
 .modal-section .modal-div .close-div {
   width: 100%;
-  padding: 5px;
+  padding: 15px 15px 0 0;
 }
 .modal-section .modal-div .close-div .fa-times {
-  color: tomato;
+  color: var(--colorText);
   font-size: 25px;
   cursor: pointer;
 }
 .modal-section .modal-div .close-div .fa-times:hover {
-  color: #ff4000;
+  color: var(--color1);
 }
 .modal-section .modal-div form {
   width: 100%;
 }
 .modal-section .modal-div form label {
-  color: black;
   font-weight: bold;
+  margin-top: 20px;
 }
 .modal-section .modal-div form :where(input, textarea) {
   border-radius: 5px;
@@ -647,21 +569,23 @@ main {
 }
 .modal-section .modal-div form .input-date {
   padding: 5px 10px;
+  width: 48%;
 }
 .modal-section .modal-div form #input-submit {
-  position: relative;
-  top: 30px;
+  position: absolute;
+  bottom: -50px;
   font-weight: bold;
-  width: 100%;
-  padding: 10px 20px;
-  margin-top: 30px;
-  border: none;
-  background-color: #FFD817;
+  padding: 20px 16px 20px 16px;
+  border: solid 15px var(--colorBackground);
+  color: var(--colorBackground);
+  background-color: var(--colorText);
   cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 .modal-section .modal-div form #input-submit:hover {
-  background-color: #FFD817;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
 }
 .modal-section .modal-div form .date-form-div {
   width: 90%;
@@ -674,16 +598,26 @@ main {
 .modal-section .modal-div form .gestion-date {
   width: 90%;
 }
-.modal-section .modal-div form .gestion-date .add-date {
+.modal-section .modal-div form .gestion-date .add-delete-date {
   border: none;
-  background-color: transparent;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
   font-weight: bold;
   cursor: pointer;
-  transition: ease-in-out 0.5s;
+  transition: 0.3s;
 }
-.modal-section .modal-div form .gestion-date .add-date:hover {
-  background-color: #FFD817;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+.modal-section .modal-div form .gestion-date .add-delete-date:hover {
+  color: var(--color1);
+}
+.modal-section .modal-div form .gestion-date .add-date {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.modal-section .modal-div form .gestion-date .delete-date {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
 
 #button {
@@ -745,7 +679,7 @@ main {
   align-items: center;
 }
 
-.flexRowCenterCenter, .modal-section .modal-div form .gestion-date {
+.flexRowCenterCenter {
   display: flex;
   flex-direction: row;
   justify-content: center;
