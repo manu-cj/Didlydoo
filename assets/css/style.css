@@ -486,13 +486,28 @@ footer #socials {
   width: 55%;
   height: 100%;
 }
+@media only screen and (min-width: 700px) {
+  footer #socials {
+    width: 35%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  footer #socials {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  footer #socials {
+    width: 20%;
+  }
+}
 footer #socials div {
   cursor: pointer;
   transition: 0.3s;
 }
 footer #socials div img {
-  width: 25%;
-  height: 50%;
+  width: 25px;
+  height: 40px;
 }
 footer #socials div p {
   text-align: center;
@@ -733,6 +748,13 @@ header {
 }
 header h1 {
   font-family: Goldman;
+  cursor: cell;
+}
+header h1 span {
+  transition: 0.7s;
+}
+header h1 span:hover {
+  transform: rotate(360deg);
 }
 header #darkmodeButton {
   position: absolute;

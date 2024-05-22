@@ -7,6 +7,14 @@ header {
 
     h1 {
         font-family: Goldman;
+        cursor: cell;
+
+        span {
+            transition:0.7s;
+        }
+        span:hover {
+            transform: rotate(360deg);
+        }
     }
 
     #darkmodeButton {
