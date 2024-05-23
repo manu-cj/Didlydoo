@@ -1,4 +1,5 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
+import { createDiv } from "./functions.js";
 
 const displayAllEvents = (datas) => {
     datas.forEach(data => {
@@ -10,18 +11,25 @@ const displayAllEvents = (datas) => {
         const otherDatasDiv = document.createElement('div');
         const eventDescription = document.createElement('blockquote');
         const eventAuthor = document.createElement('cite');
-        const eventDateDiv = document.createElement('div');
+        const eventDateDiv = document.createElement('table');
+
+        table(data.dates,eventDateDiv)
     
-        data.dates.forEach(dataDate => {
-            const eventDate = document.createElement('h5');
+        // data.dates.forEach(dataDate => {
+        //     const eventDate = document.createElement('h5');
     
-            eventDate.classList.add('eventDate');
+        //     eventDate.classList.add('eventDate');
     
-            eventDate.textContent = dataDate.date;
+        //     eventDate.textContent = dataDate.date;
     
-            eventDateDiv.appendChild(eventDate)
-            
-        });
+        //     eventDateDiv.appendChild(eventDate)
+
+        //     attendeesFNC(data,dataDate.date,)
+
+        //     for(let i=0; i<names.length; i++) {
+        //         createDiv('p',eventDateDiv,names[i])
+        //     }
+        // });
         
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
@@ -38,7 +46,7 @@ const displayAllEvents = (datas) => {
         eventName.textContent = data.name;
         seeMore.innerHTML = `See more <i class="fas fa-caret-down"></i>`;
         eventDescription.textContent = data.description;
-        eventAuthor.textContent = data.author;
+        eventAuthor.textContent = 'author: '+data.author;
     
         eventArticle.appendChild(controlArticle);
         eventArticle.appendChild(eventName);
@@ -74,16 +82,6 @@ const displayAllEvents = (datas) => {
             }
         });
 
-   
-  
-        
-        
-        
-
-        
-        
-
-
         const data = datas[i];
         
         updateBtn[i].addEventListener('click', () => {
@@ -95,6 +93,47 @@ const displayAllEvents = (datas) => {
         })
     }
     
+}
+
+function table(dates,parent) {
+    console.log(dates)
+
+    //create table
+    const head = createDiv('thead',parent)
+    
+    const datesArray=[]
+    dates.forEach(element => {
+        datesArray.push(element.date)
+    });
+
+    const thRow = createDiv('tr',head)
+
+    createDiv('th',thRow)
+
+    datesArray.forEach(date => {
+        const newDate = new Date(date)
+        const options = { day: 'numeric', month: 'long' };
+        const formattedDate = newDate.toLocaleDateString('en-US', options);
+        createDiv('th',thRow,formattedDate)
+    });
+
+    const tableBody = createDiv('tbody',parent)
+
+    const names = dates[0].attendees
+    let tr;
+    for(let i=0; i<names.length; i++) {
+        tr = createDiv('tr',tableBody,names[i].name)
+
+        for(let j=0; j<datesArray.length; j++) {
+            for(let k=0; k<dates[j].attendees.length; k++) {
+                if(dates[j].attendees[k].name == names[i].name && dates[j].attendees[k].available==true) {
+                    createDiv('td',tr,'V')
+                } else {
+                    createDiv('td',tr,'X')
+                }
+            }
+        }
+    }
 }
 
 export {displayAllEvents};
