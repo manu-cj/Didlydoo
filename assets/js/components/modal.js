@@ -1,5 +1,6 @@
 import { deleteDataById } from "../api/deleteDataById.js";
 import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
+import { sendForm } from "../api/addEvent.js";
 
 const addEventModal = (inputValue, datas) => {
 
@@ -202,13 +203,12 @@ const addEventModal = (inputValue, datas) => {
         }
     });
 
-    // Ajout de l'event + fermeture de la modale 
-    form.addEventListener('submit', function() {
-        closeModalFNC(modalSection)
-    // fetch API method post 
-    // refresh 
-
-
+    //
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        closeModalFNC(modalSection) ;
+        sendForm()
     })
 };
 
