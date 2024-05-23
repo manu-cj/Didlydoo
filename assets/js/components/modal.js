@@ -1,6 +1,6 @@
+
 import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
-import updateDatesDatas from "../api/updateDatebyId.js";
 import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
 
 
