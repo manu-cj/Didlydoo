@@ -45,11 +45,13 @@ const addEventModal = (inputValue, datas) => {
     inputEventName.id = 'input-event-name';
     inputEventName.type = 'text';
     inputEventName.placeholder = 'Add name';
+    inputEventName.name = 'name of the event';
 
     labelDescription.htmlFor = 'textarea-description';
     labelDescription.textContent = 'Event description :';
     textareaDescription.id = 'textarea-description';
     textareaDescription.placeholder = 'Add a description';
+    textareaDescription.name = 'Description of the event';
     textareaDescription.cols = '35';
     textareaDescription.rows = '5';
 
@@ -60,6 +62,7 @@ const addEventModal = (inputValue, datas) => {
     labelDateStart.textContent = 'Date :';
     inputDateStart.classList.add('input-date');
     inputDateStart.type = 'date';
+    inputDateStart.name = 'start date of the event';
 
     addDate.type = 'button';
     addDate.classList.add('add-delete-date','add-date');
@@ -71,6 +74,7 @@ const addEventModal = (inputValue, datas) => {
     labelDateEnd.textContent = 'End :';
     inputDateEnd.id = 'input-date-end';
     inputDateEnd.type = 'date';
+    inputDateEnd.name = 'End of the event';
 
     inputSubmit.id = 'input-submit';
     inputSubmit.type = 'submit';
@@ -182,14 +186,6 @@ const addEventModal = (inputValue, datas) => {
         }
     })
 
-    // Ajout de l'event + fermeture de la modale 
-    form.addEventListener('submit', function() {
-        modalSection.remove() ;
-    // fetch API method post 
-    // refresh 
-
-
-    })
 };
 
 
