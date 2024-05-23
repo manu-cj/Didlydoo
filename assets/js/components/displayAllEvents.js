@@ -64,7 +64,7 @@ const displayAllEvents = (datas) => {
             if (isSeeMore) {
                 seeMoreElements[i].innerHTML = `see Less <i class="fas fa-caret-up"></i>`;
                 seeMoreElements[i].classList.remove('seeMore');
-                seeMoreElements[i].classList.add('seeLess');
+                seeMoreElements[i].classList.add('SeeLess');
                 otherDataDivs[i].style.display = 'block';
             } else {
                 seeMoreElements[i].innerHTML = `See more <i class="fas fa-caret-down"></i>`;
