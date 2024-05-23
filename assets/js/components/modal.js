@@ -1,4 +1,7 @@
+import updateDatas from "../api/updateDatasById.js";
+import updateDatesDatas from "../api/updateDatebyId.js";
 import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
+
 
 const addEventModal = (inputValue, datas) => {
 
@@ -115,32 +118,13 @@ const addEventModal = (inputValue, datas) => {
     deleteDate.value ='➖ Delete date';
     // Affichage des données lors de l'update
     if (inputValue === 'update') {
+        form.method = 'patch';
         inputEventName.value = datas.name;
         textareaDescription.value = datas.description;
         inputEventAuthor.value = datas.author;
         counterInputDate = datas.dates.length;
-
-        if (datas.dates.length > 1) {
-            dateFormDiv.innerHTML = "";
-            for (let i = 0; i < datas.dates.length; i++) {
-                gestionDate.insertBefore(deleteDate, gestionDate.firstChild);
-                gestionDate.style.justifyContent = 'space-between';
-                const data = datas.dates[i];
-                const dates = document.createElement('input');
-                dates.type = 'date';
-                dates.classList.add('input-date');
-                dates.value = data.date;
-
-                dateFormDiv.appendChild(dates);
-            }
-        }
-        else {
-            inputDateStart.value = datas.dates[0].date;
-        }
-
-        if (datas.dates.length > 5) {
-            addDate.remove();
-        }
+        dateFormDiv.remove();
+        gestionDate.remove()
     }
 
     // Donne la possibilité de choisir plusieurs date
@@ -199,7 +183,12 @@ const addEventModal = (inputValue, datas) => {
 
     // Ajout de l'event + fermeture de la modale 
     form.addEventListener('submit', function() {
-        closeModalFNC(modalSection)
+        closeModalFNC(modalSection);
+        if (inputValue === 'update') {
+            updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
+            
+        }
+        
     // fetch API method post 
     // refresh 
 
