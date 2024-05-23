@@ -1,4 +1,16 @@
 main {
-    @include box(100%,80dvh);
+    @include box(100%,85dvh);
     overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+    width: 20px;
+}
+main::-webkit-scrollbar-track {
+    background: var(--colorBackground);
+}
+main::-webkit-scrollbar-thumb {
+    background-color: var(--colorText);
+    border-radius: 20px;
+    border:solid 7px var(--colorBackground);
 }

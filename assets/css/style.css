@@ -532,6 +532,7 @@ body {
 footer {
   width: 100%;
   height: 5dvh;
+  position: relative;
   padding: 0% 5% 0% 5%;
 }
 footer #socials {
@@ -596,10 +597,35 @@ footer #becode img:hover {
   transform: scale(110%);
 }
 
+footer::before {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--colorBackground) 90%);
+}
+
 main {
   width: 100%;
-  height: 80dvh;
+  height: 85dvh;
   overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+  width: 20px;
+}
+
+main::-webkit-scrollbar-track {
+  background: var(--colorBackground);
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: var(--colorText);
+  border-radius: 20px;
+  border: solid 7px var(--colorBackground);
 }
 
 .modal-section {
@@ -805,7 +831,7 @@ main {
 
 header {
   width: 100%;
-  height: 15dvh;
+  height: 10dvh;
   position: relative;
 }
 header h1 {
@@ -841,10 +867,22 @@ header #darkmodeButton:hover {
   transform: scale(120%);
 }
 
+header::before {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(180deg, var(--colorBackground) 10%, rgba(0, 0, 0, 0) 100%);
+}
+
 main #eventsList {
   position: relative;
   width: 90%;
-  margin: 50px auto auto auto;
+  margin: 30px auto auto auto;
+  padding-left: 20px;
 }
 @media only screen and (min-width: 900px) {
   main #eventsList {
@@ -906,6 +944,27 @@ main #eventsList article:hover {
 }
 main #eventsList h2 {
   color: var(--colorText);
+}
+
+#toastBox {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
 }
 
 body {

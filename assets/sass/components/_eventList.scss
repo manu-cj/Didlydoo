@@ -3,7 +3,8 @@ main {
     #eventsList {
         position: relative;
         width:90%;
-        margin:50px auto auto auto;
+        margin:30px auto auto auto;
+        padding-left:20px;
         @extend .flexColumnCenterCenter;
 
         @include responsive(900px) {
