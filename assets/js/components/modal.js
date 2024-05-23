@@ -1,6 +1,9 @@
-
+import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
 
 const addEventModal = (inputValue, datas) => {
+
+    blurEverything()
+
     const main = document.querySelectorAll('body');
     const addEventButton = document.getElementById('addEventButton');
 
@@ -173,18 +176,18 @@ const addEventModal = (inputValue, datas) => {
     const closeModal = closeDiv.querySelector('i');
 
     closeModal.addEventListener('click', () => {
-        modalSection.remove()
+        closeModalFNC(modalSection)
     })
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modalSection) {
-            modalSection.remove()
+    modalSection.addEventListener('click', (e) => {
+        if (!modalDiv.contains(e.target)) {
+            closeModalFNC(modalSection);
         }
-    })
+    });
 
     // Ajout de l'event + fermeture de la modale 
     form.addEventListener('submit', function() {
-        modalSection.remove() ;
+        closeModalFNC(modalSection)
     // fetch API method post 
     // refresh 
 
@@ -194,8 +197,37 @@ const addEventModal = (inputValue, datas) => {
 
 
 
-function deleteEventModal() {
+function deleteEventModal(data) {
     // code pour supprimer
+    console.log(data)
+
+    blurEverything()
+
+    const container = createDiv('section',document.body,null,'deleteContainer')
+
+    const form = createDiv('div',container,null,'deleteForm')
+
+    createDiv('p',form,'Are you sure to delete this event?')
+
+    const answers = createDiv('div',form,null,'deleteAnswers')
+
+    const yes = createDiv('div',answers,'Yes',null,'deleteYes')
+
+    const no = createDiv('div',answers,'No',null,'deleteNo')
+
+    yes.addEventListener('click', () => {
+        closeModalFNC(container)
+    })
+
+    no.addEventListener('click', () => {
+        closeModalFNC(container)
+    })
+
+    container.addEventListener('click', (e) => {
+        if (!form.contains(e.target)) {
+            closeModalFNC(container);
+        }
+    })
 }
 
 export default addEventModal;

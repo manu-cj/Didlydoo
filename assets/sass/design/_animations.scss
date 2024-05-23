@@ -12,6 +12,18 @@
     }
 }
 
+.blur {
+    animation: blur 0.5s linear forwards;
+}
+@keyframes blur {
+    0%{
+        filter:blur(0);
+    }
+    100%{
+        filter:blur(10px);
+    }
+}
+
 .introTitle {
     animation:introTitle 1.5s ease-out;
 }

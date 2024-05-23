@@ -1,0 +1,46 @@
+body {
+    .deleteContainer {
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: 100;
+        @include box(100%);
+        @extend .flexCenterCenter;
+
+        background-color: rgba(0.1, 0.1, 0.1, 0.1);
+
+        .deleteForm {
+            //@include box(75%,auto);
+            @extend .absoluteCenter;
+            
+    
+            @extend .flexColumnCenterCenter;
+    
+            color:var(--colorText);
+            background-color: var(--colorBackground);
+    
+            padding: 25px;
+            border:solid 1px var(--colorText);
+            border-radius: 20px;
+    
+            .deleteAnswers {
+                @include box(50%,auto);
+                @extend .flexBetweenCenter;
+    
+                div {
+                    padding:0 10px 0 10px;
+                    border: solid 1px var(--colorText);
+                    border-radius: 20px;
+    
+                    cursor:pointer;
+                    transition:0.3s;
+                }
+                div:hover {
+                    background-color: var(--colorText);
+                    color:var(--colorBackground);
+                }
+            }
+        }
+    }
+    
+}

@@ -1,4 +1,4 @@
-import addEventModal from "./modal.js";
+import addEventModal, { deleteEventModal } from "./modal.js";
 
 const displayAllEvents = (datas) => {
     datas.forEach(data => {
@@ -21,12 +21,19 @@ const displayAllEvents = (datas) => {
         
     });
 
+    const updateBtn = document.querySelectorAll('.fa-pencil-alt'); 
+    const deleteBtn = document.querySelectorAll('.fa-times');
+
     for (let i = 0; i < datas.length; i++) {
         const data = datas[i];
-        const updateBtn = document.querySelectorAll('.fa-pencil-alt'); 
+        
         updateBtn[i].addEventListener('click', () => {
             addEventModal('update', data);
-        }) 
+        })
+
+        deleteBtn[i].addEventListener('click', () => {
+            deleteEventModal(data)
+        })
     }
     
 }
