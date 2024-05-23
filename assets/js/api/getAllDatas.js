@@ -3,6 +3,7 @@ import { displayAllEvents } from "./../components/displayAllEvents.js";
 
 const getAllDatas = (request) => {
     const url = `http://localhost:3000/api/${request}/`;
+   
 
     fetch(url, {
         method: 'GET',

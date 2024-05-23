@@ -343,6 +343,18 @@ template {
     filter: blur(0);
   }
 }
+.blur {
+  animation: blur 0.5s linear forwards;
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(10px);
+  }
+}
 .introTitle {
   animation: introTitle 1.5s ease-out;
 }
@@ -532,6 +544,7 @@ body {
 footer {
   width: 100%;
   height: 5dvh;
+  position: relative;
   padding: 0% 5% 0% 5%;
 }
 footer #socials {
@@ -596,10 +609,35 @@ footer #becode img:hover {
   transform: scale(110%);
 }
 
+footer::before {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--colorBackground) 90%);
+}
+
 main {
   width: 100%;
-  height: 80dvh;
+  height: 85dvh;
   overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+  width: 20px;
+}
+
+main::-webkit-scrollbar-track {
+  background: var(--colorBackground);
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: var(--colorText);
+  border-radius: 20px;
+  border: solid 7px var(--colorBackground);
 }
 
 .modal-section {
@@ -608,14 +646,13 @@ main {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(151, 151, 152, 0.54);
-  z-index: 10;
+  z-index: 100;
 }
 .modal-section .modal-div {
   position: relative;
   width: 400px;
   width: 400px;
-  height: 550px;
+  height: auto;
   border-radius: 15px;
   color: var(--colorText);
   background-color: var(--colorBackground);
@@ -648,7 +685,7 @@ main {
 .modal-section .modal-div form :where(input:focus, textarea:focus) {
   background-color: white;
 }
-.modal-section .modal-div form #input-event-name {
+.modal-section .modal-div form #input-event-name, .modal-section .modal-div form #input-event-author {
   width: 80%;
 }
 .modal-section .modal-div form .input-date {
@@ -673,9 +710,9 @@ main {
 }
 .modal-section .modal-div form .date-form-div {
   width: 90%;
-  height: 150px;
-  margin: 15px 30px;
-  padding: 10px 20px;
+  height: auto;
+  margin: 0px 30px 60px 30px;
+  padding: 0px 20px 10px 20px;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -704,7 +741,7 @@ main {
   left: 20px;
 }
 
-.flexCenterCenter, footer #socials div, footer #becode, header {
+.flexCenterCenter, body .deleteContainer, footer #socials div, footer #becode, header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -722,20 +759,20 @@ main {
   align-items: center;
 }
 
-.flexEndCenter {
+.flexEndCenter, main #eventsList article .controlArticle {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.flexColumnCenterCenter, main #eventsList, .modal-section {
+.flexColumnCenterCenter, body .deleteContainer .deleteForm, main #eventsList, .modal-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.flexColumnAroundCenter, .modal-section .modal-div form {
+.flexColumnAroundCenter, main #eventsList article, .modal-section .modal-div form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -805,7 +842,7 @@ main {
 
 header {
   width: 100%;
-  height: 15dvh;
+  height: 10dvh;
   position: relative;
 }
 header h1 {
@@ -841,10 +878,22 @@ header #darkmodeButton:hover {
   transform: scale(120%);
 }
 
+header::before {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(180deg, var(--colorBackground) 10%, rgba(0, 0, 0, 0) 100%);
+}
+
 main #eventsList {
   position: relative;
   width: 90%;
-  margin: 50px auto auto auto;
+  margin: 30px auto auto auto;
+  padding-left: 20px;
 }
 @media only screen and (min-width: 900px) {
   main #eventsList {
@@ -880,7 +929,6 @@ main #eventsList article {
   margin-bottom: 15px;
   padding: 10px;
   transition: 0.3s;
-  cursor: pointer;
   background-color: var(--color2);
 }
 @media only screen and (min-width: 900px) {
@@ -888,24 +936,133 @@ main #eventsList article {
     width: 810px;
   }
 }
-main #eventsList article div {
-  position: absolute;
-  top: 3%;
-  right: 3%;
+main #eventsList article .controlArticle {
+  width: 100%;
 }
-main #eventsList article div i {
+main #eventsList article .controlArticle i {
   cursor: pointer;
   transition: 0.3s;
+  margin: 5px;
 }
-main #eventsList article div i:hover {
+main #eventsList article .controlArticle i:hover {
+  color: var(--color1);
+  transform: scale(1.1);
+}
+main #eventsList article :where(.seeMore, .seeLess) {
+  cursor: pointer;
+  margin: 10px;
+  align-self: flex-end;
+}
+main #eventsList article :where(.seeMore, .seeLess) i {
+  margin-left: 5px;
+}
+main #eventsList article :where(.seeMore, .seeLess):hover {
   color: var(--color1);
   transform: scale(110%);
+}
+main #eventsList article .otherDataDiv {
+  padding-left: 50px;
+  width: 100%;
+  display: none;
 }
 main #eventsList article:hover {
   border: solid 2px var(--color1);
 }
 main #eventsList h2 {
   color: var(--colorText);
+}
+
+#toastBox {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+#toastBox {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+body .deleteContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+body .deleteContainer .deleteForm {
+  width: auto;
+  height: 150px;
+  position: relative;
+  color: var(--colorText);
+  background-color: var(--colorBackground);
+  padding: 25px;
+  border-radius: 20px;
+}
+body .deleteContainer .deleteForm .deleteAnswers {
+  width: 100%;
+  height: 100%;
+}
+body .deleteContainer .deleteForm .deleteAnswers div {
+  font-weight: 800;
+  text-align: center;
+  position: absolute;
+  bottom: -30px;
+  width: 85px;
+  padding: 20px 0px;
+  border: solid 10px var(--colorBackground);
+  border-radius: 50%;
+  background-color: var(--colorText);
+  color: var(--colorBackground);
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .deleteContainer .deleteForm .deleteAnswers div:hover {
+  color: var(--colorText);
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteYes {
+  left: 35px;
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteYes:hover {
+  background-color: green;
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteNo {
+  right: 35px;
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteNo:hover {
+  background-color: red;
 }
 
 body {

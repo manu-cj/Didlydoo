@@ -4,14 +4,15 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(151, 151, 152, 0.54);
-    z-index: 10;
+    //background-color: rgba(151, 151, 152, 0.54);
+    z-index: 100;
     @extend .flexColumnCenterCenter;
 
     .modal-div {
         position: relative;
         width: 400px;
-        @include box(400px,550px);
+        @include box(400px,auto);
+        //@include box(400px,550px);
         border-radius: 15px;
         color:var(--colorText);
         background-color: var(--colorBackground);
@@ -51,7 +52,7 @@
                 background-color: white;
             }
 
-            #input-event-name {
+            #input-event-name, #input-event-author {
                 width: 80%;
             }
 
@@ -79,9 +80,9 @@
 
             .date-form-div {
                 width: 90%;
-                height: 150px;
-                margin: 15px 30px;
-                padding: 10px 20px;
+                height:auto;
+                margin: 0px 30px 60px 30px;
+                padding: 0px 20px 10px 20px;
                 @extend .flexColumnBetweenStart;
                 flex-wrap: wrap;
                 gap: 10px;                

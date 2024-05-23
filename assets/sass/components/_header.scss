@@ -1,7 +1,7 @@
 @use "../extends/_extends_dir";
 
 header {
-    @include box(100%,15dvh);
+    @include box(100%,10dvh);
     @extend .flexCenterCenter;
     position: relative;
 
@@ -41,4 +41,14 @@ header {
     #darkmodeButton:hover {
         transform: scale(120%);
     }
+}
+
+header::before {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    bottom:-30px;
+    left:0;
+    @include box(100%,30px);
+    background: linear-gradient(180deg, var(--colorBackground) 10%, rgba(0, 0, 0, 0) 100%);
 }

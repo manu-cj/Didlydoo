@@ -2,6 +2,7 @@ footer {
     @include box(100%,5dvh);
     @extend .flexBetweenCenter;
 
+    position: relative;
     padding: 0% 5% 0% 5%;
 
     #socials {
@@ -65,4 +66,14 @@ footer {
             transform: scale(110%);
         }
     }
+}
+
+footer::before {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    top:-30px;
+    left:0;
+    @include box(100%,30px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--colorBackground) 90%);
 }

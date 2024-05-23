@@ -3,7 +3,8 @@ main {
     #eventsList {
         position: relative;
         width:90%;
-        margin:50px auto auto auto;
+        margin:30px auto auto auto;
+        padding-left:20px;
         @extend .flexColumnCenterCenter;
 
         @include responsive(900px) {
@@ -43,28 +44,46 @@ main {
             margin-bottom: 15px;
             padding:10px;
             transition: 0.3s;
-            cursor:pointer;
             background-color: var(--color2);
+            @extend .flexColumnAroundCenter;
 
             @include responsive(900px) {
                 width:810px;
             }
 
-            div {
-                position: absolute;
-                top:3%;
-                right:3%;
+            .controlArticle {
+                width: 100%;
+                @extend .flexEndCenter;
 
                 i {
                     cursor:pointer;
                     transition:0.3s;
+                    margin: 5px;
+                    &:hover {
+                        color:var(--color1);
+                        transform: scale(1.1);
+                    }
                 }
-                i:hover {
+    
+            }
+            :where(.seeMore, .seeLess) {
+                cursor: pointer;
+                margin: 10px;
+                align-self: flex-end;
+
+                i { 
+                    margin-left: 5px;
+                }
+
+                &:hover {
                     color:var(--color1);
                     transform: scale(110%);
                 }
-
-                
+            }
+            .otherDataDiv {
+                padding-left: 50px;
+                width: 100%;
+                display: none;
             }
         }
 

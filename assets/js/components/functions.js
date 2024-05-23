@@ -28,3 +28,16 @@ export function createDiv(type,parent,content,className) {
     parent.appendChild(newDiv);
     return newDiv;
 }
+
+export function blurEverything() {
+  document.querySelector('header').classList.add('blur')
+  document.querySelector('main').classList.add('blur')
+  document.querySelector('footer').classList.add('blur')
+}
+
+export function closeModalFNC(container) {
+  document.querySelector('header').classList.remove('blur')
+  document.querySelector('main').classList.remove('blur')
+  document.querySelector('footer').classList.remove('blur')
+  container.remove()
+}

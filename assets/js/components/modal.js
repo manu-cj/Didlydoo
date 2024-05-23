@@ -1,6 +1,10 @@
-
+import { deleteDataById } from "../api/deleteDataById.js";
+import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
 
 const addEventModal = (inputValue, datas) => {
+
+    blurEverything()
+
     const main = document.querySelectorAll('body');
     const addEventButton = document.getElementById('addEventButton');
 
@@ -14,6 +18,9 @@ const addEventModal = (inputValue, datas) => {
 
     const labelDescription = document.createElement('label');
     const textareaDescription = document.createElement('textarea');
+
+    const labelInputAuthor = document.createElement('label');
+    const inputEventAuthor = document.createElement('input');
 
     const dateFormDiv = document.createElement('div');
     const startDiv = document.createElement('div');
@@ -55,6 +62,12 @@ const addEventModal = (inputValue, datas) => {
     textareaDescription.cols = '35';
     textareaDescription.rows = '5';
 
+    labelInputAuthor.htmlFor = 'input-event-author';
+    labelInputAuthor.textContent = 'Event author :';
+    inputEventAuthor.id = 'input-event-author';
+    inputEventAuthor.type = 'text';
+    inputEventAuthor.placeholder = 'Add author';
+
     dateFormDiv.classList.add('date-form-div');
     startDiv.classList.add('start-date');
 
@@ -85,6 +98,8 @@ const addEventModal = (inputValue, datas) => {
     form.appendChild(inputEventName);
     form.appendChild(labelDescription);
     form.appendChild(textareaDescription);
+    form.appendChild(labelInputAuthor);
+    form.appendChild(inputEventAuthor);
     form.appendChild(labelDateStart);
     dateFormDiv.appendChild(inputDateStart);
     form.appendChild(dateFormDiv);
@@ -107,6 +122,7 @@ const addEventModal = (inputValue, datas) => {
     if (inputValue === 'update') {
         inputEventName.value = datas.name;
         textareaDescription.value = datas.description;
+        inputEventAuthor.value = datas.author;
         counterInputDate = datas.dates.length;
 
         if (datas.dates.length > 1) {
@@ -177,21 +193,58 @@ const addEventModal = (inputValue, datas) => {
     const closeModal = closeDiv.querySelector('i');
 
     closeModal.addEventListener('click', () => {
-        modalSection.remove()
+        closeModalFNC(modalSection)
     })
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modalSection) {
-            modalSection.remove()
+    modalSection.addEventListener('click', (e) => {
+        if (!modalDiv.contains(e.target)) {
+            closeModalFNC(modalSection);
         }
-    })
+    });
 
+    // Ajout de l'event + fermeture de la modale 
+    form.addEventListener('submit', function() {
+        closeModalFNC(modalSection)
+    // fetch API method post 
+    // refresh 
+
+
+    })
 };
 
 
 
-function deleteEventModal() {
+function deleteEventModal(data) {
     // code pour supprimer
+
+    blurEverything()
+
+    const container = createDiv('section',document.body,null,'deleteContainer')
+
+    const form = createDiv('div',container,null,'deleteForm')
+
+    createDiv('p',form,'Are you sure to delete this event?')
+
+    const answers = createDiv('div',form,null,'deleteAnswers')
+
+    const yes = createDiv('div',answers,'Yes','deleteYes')
+
+    const no = createDiv('div',answers,'No','deleteNo')
+
+    yes.addEventListener('click', () => {
+        closeModalFNC(container)
+        deleteDataById(data)
+    })
+
+    no.addEventListener('click', () => {
+        closeModalFNC(container)
+    })
+
+    container.addEventListener('click', (e) => {
+        if (!form.contains(e.target)) {
+            closeModalFNC(container);
+        }
+    })
 }
 
 export default addEventModal;
