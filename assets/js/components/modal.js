@@ -18,6 +18,9 @@ const addEventModal = (inputValue, datas) => {
     const labelDescription = document.createElement('label');
     const textareaDescription = document.createElement('textarea');
 
+    const labelInputAuthor = document.createElement('label');
+    const inputEventAuthor = document.createElement('input');
+
     const dateFormDiv = document.createElement('div');
     const startDiv = document.createElement('div');
     
@@ -56,6 +59,12 @@ const addEventModal = (inputValue, datas) => {
     textareaDescription.cols = '35';
     textareaDescription.rows = '5';
 
+    labelInputAuthor.htmlFor = 'input-event-author';
+    labelInputAuthor.textContent = 'Event author :';
+    inputEventAuthor.id = 'input-event-author';
+    inputEventAuthor.type = 'text';
+    inputEventAuthor.placeholder = 'Add author';
+
     dateFormDiv.classList.add('date-form-div');
     startDiv.classList.add('start-date');
 
@@ -84,6 +93,8 @@ const addEventModal = (inputValue, datas) => {
     form.appendChild(inputEventName);
     form.appendChild(labelDescription);
     form.appendChild(textareaDescription);
+    form.appendChild(labelInputAuthor);
+    form.appendChild(inputEventAuthor);
     form.appendChild(labelDateStart);
     dateFormDiv.appendChild(inputDateStart);
     form.appendChild(dateFormDiv);
@@ -106,6 +117,7 @@ const addEventModal = (inputValue, datas) => {
     if (inputValue === 'update') {
         inputEventName.value = datas.name;
         textareaDescription.value = datas.description;
+        inputEventAuthor.value = datas.author;
         counterInputDate = datas.dates.length;
 
         if (datas.dates.length > 1) {
