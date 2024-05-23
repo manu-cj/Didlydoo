@@ -199,7 +199,6 @@ const addEventModal = (inputValue, datas) => {
 
 function deleteEventModal(data) {
     // code pour supprimer
-    console.log(data)
 
     blurEverything()
 
@@ -211,9 +210,9 @@ function deleteEventModal(data) {
 
     const answers = createDiv('div',form,null,'deleteAnswers')
 
-    const yes = createDiv('div',answers,'Yes',null,'deleteYes')
+    const yes = createDiv('div',answers,'Yes','deleteYes')
 
-    const no = createDiv('div',answers,'No',null,'deleteNo')
+    const no = createDiv('div',answers,'No','deleteNo')
 
     yes.addEventListener('click', () => {
         closeModalFNC(container)

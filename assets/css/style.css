@@ -753,7 +753,7 @@ main::-webkit-scrollbar-thumb {
   align-items: center;
 }
 
-.flexBetweenCenter, body .deleteContainer .deleteForm .deleteAnswers, footer, footer #socials {
+.flexBetweenCenter, footer, footer #socials {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -821,7 +821,7 @@ main::-webkit-scrollbar-thumb {
   align-items: flex-start;
 }
 
-.absoluteCenter, body .deleteContainer .deleteForm {
+.absoluteCenter {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -985,29 +985,48 @@ body .deleteContainer {
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 body .deleteContainer .deleteForm {
+  width: auto;
+  height: 150px;
+  position: relative;
   color: var(--colorText);
   background-color: var(--colorBackground);
   padding: 25px;
-  border: solid 1px var(--colorText);
   border-radius: 20px;
 }
 body .deleteContainer .deleteForm .deleteAnswers {
-  width: 50%;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 body .deleteContainer .deleteForm .deleteAnswers div {
-  padding: 0 10px 0 10px;
-  border: solid 1px var(--colorText);
-  border-radius: 20px;
+  font-weight: 800;
+  text-align: center;
+  position: absolute;
+  bottom: -30px;
+  width: 85px;
+  padding: 20px 0px;
+  border: solid 10px var(--colorBackground);
+  border-radius: 50%;
+  background-color: var(--colorText);
+  color: var(--colorBackground);
   cursor: pointer;
   transition: 0.3s;
 }
 body .deleteContainer .deleteForm .deleteAnswers div:hover {
-  background-color: var(--colorText);
-  color: var(--colorBackground);
+  color: var(--colorText);
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteYes {
+  left: 35px;
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteYes:hover {
+  background-color: green;
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteNo {
+  right: 35px;
+}
+body .deleteContainer .deleteForm .deleteAnswers .deleteNo:hover {
+  background-color: red;
 }
 
 body {
