@@ -648,7 +648,7 @@ main {
 .modal-section .modal-div form :where(input:focus, textarea:focus) {
   background-color: white;
 }
-.modal-section .modal-div form #input-event-name {
+.modal-section .modal-div form #input-event-name, .modal-section .modal-div form #input-event-author {
   width: 80%;
 }
 .modal-section .modal-div form .input-date {
@@ -722,7 +722,7 @@ main {
   align-items: center;
 }
 
-.flexEndCenter {
+.flexEndCenter, main #eventsList article .controlArticle {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -735,7 +735,7 @@ main {
   align-items: center;
 }
 
-.flexColumnAroundCenter, .modal-section .modal-div form {
+.flexColumnAroundCenter, main #eventsList article, .modal-section .modal-div form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -880,7 +880,6 @@ main #eventsList article {
   margin-bottom: 15px;
   padding: 10px;
   transition: 0.3s;
-  cursor: pointer;
   background-color: var(--color2);
 }
 @media only screen and (min-width: 900px) {
@@ -888,24 +887,61 @@ main #eventsList article {
     width: 810px;
   }
 }
-main #eventsList article div {
-  position: absolute;
-  top: 3%;
-  right: 3%;
+main #eventsList article .controlArticle {
+  width: 100%;
 }
-main #eventsList article div i {
+main #eventsList article .controlArticle i {
   cursor: pointer;
   transition: 0.3s;
+  margin: 5px;
 }
-main #eventsList article div i:hover {
+main #eventsList article .controlArticle i:hover {
+  color: var(--color1);
+  transform: scale(1.1);
+}
+main #eventsList article :where(.seeMore, .seeLess) {
+  cursor: pointer;
+  margin: 10px;
+  align-self: flex-end;
+}
+main #eventsList article :where(.seeMore, .seeLess) i {
+  margin-left: 5px;
+}
+main #eventsList article :where(.seeMore, .seeLess):hover {
   color: var(--color1);
   transform: scale(110%);
+}
+main #eventsList article .otherDataDiv {
+  padding-left: 50px;
+  width: 100%;
+  display: none;
 }
 main #eventsList article:hover {
   border: solid 2px var(--color1);
 }
 main #eventsList h2 {
   color: var(--colorText);
+}
+
+#toastBox {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
 }
 
 body {

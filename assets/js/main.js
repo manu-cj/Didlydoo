@@ -5,6 +5,7 @@ import { footerLinks } from "./components/footerLinks.js";
 import { cats } from "./components/cats.js";
 import { displayAllEvents } from "./components/displayAllEvents.js";
 import { getAllDatas } from "./api/getAllDatas.js";
+import addEventModal, { deleteEventModal } from "./components/modal.js";
 
 getAllDatas('events');
 
