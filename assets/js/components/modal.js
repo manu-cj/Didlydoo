@@ -1,3 +1,4 @@
+import { deleteDataById } from "../api/deleteDataById.js";
 import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
 
 const addEventModal = (inputValue, datas) => {
@@ -216,6 +217,7 @@ function deleteEventModal(data) {
 
     yes.addEventListener('click', () => {
         closeModalFNC(container)
+        deleteDataById(data)
     })
 
     no.addEventListener('click', () => {
