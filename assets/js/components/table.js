@@ -26,7 +26,7 @@ export function table(dates, parent, id) {
     for (let i = 0; i < names.length; i++) {
 
         const tr = createDiv('tr', tableBody)
-        createDiv('td', tr, names[i].name)
+        createDiv('td', tr, names[i].name,'nameTable')
 
         for (let j = 0; j < datesArray.length; j++) {
 
@@ -40,18 +40,18 @@ export function table(dates, parent, id) {
             if (attendee && attendee.available === true) {
                 //available
                const td = createDiv('td', tr);
-               const checkbox = createDiv('input',td,null,['checkAvailability','available'])
-               checkbox.type = 'checkbox'
-               checkbox.checked = true
+               const checkboxContainer = createDiv('div',td,null,'checkboxContainer')
+               const checkbox = createDiv('div',checkboxContainer,null,'checkbox')
+               checkbox.setAttribute('checked','true')
+               checkbox.classList.add('checked')
                data.available = true
-               //`{ name: string, dates : [ { date: date 'YYYY-MM-DD', available: boolean (true/false) } ] }`
                checkboxEvent(checkbox,data)
             } else {
                 //unvailable
                 const td = createDiv('td', tr);
-                const checkbox = createDiv('input',td,null,['checkAvailability','unvailable'])
-                checkbox.type = 'checkbox'
-                checkbox.checked = false
+                const checkboxContainer = createDiv('div',td,null,'checkboxContainer')
+                const checkbox = createDiv('div',checkboxContainer,null,'checkbox')
+                checkbox.setAttribute('checked','false')
                 checkboxEvent(checkbox,data)
             }
         } 
@@ -59,8 +59,17 @@ export function table(dates, parent, id) {
 }
 
 function checkboxEvent(checkbox,data) {
-    checkbox.addEventListener('change', () => {
-        data.available = checkbox.checked
+    checkbox.addEventListener('click', () => {
+        const checked = checkbox.getAttribute('checked')
+        data.available = checked == 'true' ? false : true
+        checkbox.setAttribute('checked', data.available.toString())
+
+        if(checked=='true') {
+            checkbox.classList.remove('checked')
+        } else {
+            checkbox.classList.add('checked')
+        }
+
         console.log(data.id)
         console.log(data.name)
         console.log(data.date)
