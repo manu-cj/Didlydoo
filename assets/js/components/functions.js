@@ -17,13 +17,19 @@ export function sleep(ms) {
 // you can use null value to avoid content and class
 // ex: const div = createDiv('p',parent,null,null)
 
-export function createDiv(type,parent,content,className) {
+export function createDiv(type,parent,content,className,setValue,setSrc) {
     const newDiv=document.createElement(type);
     if (content!=null) {
       newDiv.innerHTML=content;
     }
     if (className!=null) {
       newDiv.classList.add(className);
+    }
+    if (setValue!=null) {
+      newDiv.value=setValue
+    }
+    if (setSrc!=null) {
+      newDiv.value=setSrc
     }
     parent.appendChild(newDiv);
     return newDiv;

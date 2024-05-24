@@ -329,6 +329,36 @@ template {
   display: none;
 }
 
+.fromLeft {
+  opacity: 0;
+  animation: fromLeft 0.5s 0.5s linear forwards;
+}
+
+@keyframes fromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fromRight {
+  opacity: 0;
+  animation: fromRight 0.5s 0.5s linear forwards;
+}
+
+@keyframes fromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .introFadeIn {
   animation: introFadeIn 0.5s linear forwards;
 }
@@ -370,37 +400,34 @@ template {
   }
 }
 .introDarkmode {
-  transform: translateX(1000px);
-  animation: introDarkmode 1s ease-out forwards;
+  opacity: 0;
+  animation: introDarkmode 1s 2s ease-out forwards;
 }
 
 @keyframes introDarkmode {
   0% {
     transform: translateX(1000px);
     opacity: 0;
-    filter: blur(10px);
   }
   100% {
     transform: translateX(0);
     opacity: 1;
-    filter: blur(0);
   }
 }
 .introAddEvent {
   opacity: 0;
-  animation: introAddEvent 1s ease-out forwards;
+  transform: translateX(-1000px);
+  animation: introAddEvent 1s 1.5s ease-out forwards;
 }
 
 @keyframes introAddEvent {
   0% {
     transform: translateX(-1000px);
     opacity: 0;
-    filter: blur(10px);
   }
   100% {
     transform: translateX(0);
     opacity: 1;
-    filter: blur(0);
   }
 }
 .introFooter {
@@ -445,7 +472,7 @@ template {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
   100% {
     transform: translateY(0);
@@ -741,7 +768,7 @@ main::-webkit-scrollbar-thumb {
   left: 20px;
 }
 
-.flexCenterCenter, body .deleteContainer, footer #socials div, footer #becode, header {
+.flexCenterCenter, .checkboxContainer, .participantContainer .participantAdd, body .deleteContainer, footer #socials div, footer #becode, header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -862,10 +889,11 @@ header h1 span:hover {
   transform: rotate(360deg);
 }
 header #darkmodeButton {
+  opacity: 0;
   position: absolute;
   top: 10%;
   right: 0;
-  height: 17%;
+  height: 20px;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -948,6 +976,10 @@ main #eventsList article .controlArticle i:hover {
   color: var(--color1);
   transform: scale(1.1);
 }
+main #eventsList article h2 {
+  color: var(--colorText);
+  font-family: Goldman;
+}
 main #eventsList article :where(.seeMore, .seeLess) {
   cursor: pointer;
   margin: 10px;
@@ -961,15 +993,21 @@ main #eventsList article :where(.seeMore, .seeLess):hover {
   transform: scale(110%);
 }
 main #eventsList article .otherDataDiv {
-  padding-left: 50px;
+  padding: 20px;
   width: 100%;
   display: none;
 }
+main #eventsList article .otherDataDiv blockquote {
+  font-weight: 500;
+}
+main #eventsList article .otherDataDiv .eventAuthor {
+  margin-top: 15px;
+}
+main #eventsList article .otherDataDiv .eventDateDiv {
+  margin-top: 15px;
+}
 main #eventsList article:hover {
   border: solid 2px var(--color1);
-}
-main #eventsList h2 {
-  color: var(--colorText);
 }
 
 #toastBox {
@@ -1042,6 +1080,65 @@ body .deleteContainer .deleteForm .deleteAnswers .deleteNo {
 }
 body .deleteContainer .deleteForm .deleteAnswers .deleteNo:hover {
   background-color: red;
+}
+
+table {
+  width: 100%;
+  border: 1px solid var(--color1);
+}
+
+td {
+  border: 1px solid var(--color1);
+}
+td .checkAvailability {
+  width: 80%;
+  height: 80%;
+}
+
+.nameTable {
+  border: 0px;
+}
+
+.participantContainer {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.participantContainer .participantAdd {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--colorBackground);
+  background-color: var(--colorText);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.participantContainer .participantAdd:hover {
+  color: var(--colorText);
+  background-color: var(--color1);
+}
+
+.checkboxContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.checkbox {
+  width: 2vh;
+  height: 2vh;
+  border: solid 1px var(--colorText);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkbox:hover {
+  transform: scale(110%);
+  border: solid 1px var(--colorBackground);
+}
+
+.checked {
+  background-color: var(--color1);
 }
 
 body {

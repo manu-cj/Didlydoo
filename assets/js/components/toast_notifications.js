@@ -1,3 +1,5 @@
+export function toastNotifications() {
+    
 let toastBox= document.getElementById('toastBox');
 let successNotification = "You successfully added an event !";
 let deleteNotification = "Event deleted";
@@ -28,3 +30,4 @@ const addButton = document.getElementById('input-submit') ;
 addButton.addEventListener("click",showToast(successNotification)) ;
 
 
+}
