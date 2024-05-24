@@ -1,7 +1,7 @@
 
 import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
-import { createDiv, closeModalFNC, blurEverything, sanityzeForm, compareDates } from "./functions.js";
+import { createDiv, closeModalFNC, blurEverything, sanityzeForm, compareDates, stripTag } from "./functions.js";
 
 
 
@@ -200,7 +200,7 @@ const addEventModal = (inputValue, datas) => {
     form.addEventListener('submit', function() {
         closeModalFNC(modalSection);
         if (inputValue === 'update') {
-            updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
+            updateDatas(datas.id, stripTag(inputEventName.value), stripTag(textareaDescription.value), stripTag(inputEventAuthor.value));
         }
         
     // fetch API method post 

@@ -70,7 +70,6 @@ export function sanityzeForm(namedata, description, author) {
   });
 
  author.addEventListener('keyup', () => {
-
     if (author.value.length < 3 ||author.value.length > 39) {
      author.setCustomValidity('The author must contain at least 3 and 40 characters');
       author.style.outlineColor = 'red';
@@ -91,8 +90,15 @@ export function compareDates(dates) {
   });
 }
 
+export function stripTag(input) {
+  // Remplace les balises ouvertes et fermées par du texte vide
+  const sanitizedInput = input.replace(/<[^>]*>/g, '');
 
-    
+  // Supprime les événements JavaScript tels que onclick, onmouseover, etc.
+  const sanitizedInputWithoutEvents = sanitizedInput.replace(/on\w+="[^"]*"/g, '');
+
+  return sanitizedInputWithoutEvents;
+}
     
     
     
