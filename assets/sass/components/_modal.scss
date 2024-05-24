@@ -4,7 +4,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    //background-color: rgba(151, 151, 152, 0.54);
     z-index: 100;
     @extend .flexColumnCenterCenter;
 
@@ -12,7 +11,6 @@
         position: relative;
         width: 400px;
         @include box(400px,auto);
-        //@include box(400px,550px);
         border-radius: 15px;
         color:var(--colorText);
         background-color: var(--colorBackground);

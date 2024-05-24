@@ -1,4 +1,6 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
+import { createDiv } from "./functions.js";
+import { table } from "./table.js";
 
 const displayAllEvents = (datas) => {
     datas.forEach(data => {
@@ -10,18 +12,25 @@ const displayAllEvents = (datas) => {
         const otherDatasDiv = document.createElement('div');
         const eventDescription = document.createElement('blockquote');
         const eventAuthor = document.createElement('cite');
-        const eventDateDiv = document.createElement('div');
+        const eventDateDiv = document.createElement('table');
+
+        table(data.dates,eventDateDiv)
     
-        data.dates.forEach(dataDate => {
-            const eventDate = document.createElement('h5');
+        // data.dates.forEach(dataDate => {
+        //     const eventDate = document.createElement('h5');
     
-            eventDate.classList.add('eventDate');
+        //     eventDate.classList.add('eventDate');
     
-            eventDate.textContent = dataDate.date;
+        //     eventDate.textContent = dataDate.date;
     
-            eventDateDiv.appendChild(eventDate)
-            
-        });
+        //     eventDateDiv.appendChild(eventDate)
+
+        //     attendeesFNC(data,dataDate.date,)
+
+        //     for(let i=0; i<names.length; i++) {
+        //         createDiv('p',eventDateDiv,names[i])
+        //     }
+        // });
         
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
@@ -38,7 +47,7 @@ const displayAllEvents = (datas) => {
         eventName.textContent = data.name;
         seeMore.innerHTML = `See more <i class="fas fa-caret-down"></i>`;
         eventDescription.textContent = data.description;
-        eventAuthor.textContent = data.author;
+        eventAuthor.textContent = 'author: '+data.author;
     
         eventArticle.appendChild(controlArticle);
         eventArticle.appendChild(eventName);
@@ -73,16 +82,6 @@ const displayAllEvents = (datas) => {
                 otherDataDivs[i].style.display = 'none';
             }
         });
-
-   
-  
-        
-        
-        
-
-        
-        
-
 
         const data = datas[i];
         

@@ -216,8 +216,9 @@ function deleteEventModal(data) {
 
     const no = createDiv('div',answers,'No','deleteNo')
 
-    yes.addEventListener('click', () => {
+    yes.addEventListener('click', (e) => {
         closeModalFNC(container)
+        e.preventDefault()
         deleteDataById(data)
     })
 
