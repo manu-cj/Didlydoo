@@ -400,13 +400,8 @@ template {
   }
 }
 .introDarkmode {
-<<<<<<< HEAD
-  transform: translateX(1000px);
-  animation: introDarkmode 1s ease-out forwards;
-=======
   opacity: 0;
   animation: introDarkmode 1s 2s ease-out forwards;
->>>>>>> origin/arnaud
 }
 
 @keyframes introDarkmode {
@@ -421,12 +416,8 @@ template {
 }
 .introAddEvent {
   opacity: 0;
-<<<<<<< HEAD
-  animation: introAddEvent 1s ease-out forwards;
-=======
   transform: translateX(-1000px);
   animation: introAddEvent 1s 1.5s ease-out forwards;
->>>>>>> origin/arnaud
 }
 
 @keyframes introAddEvent {
@@ -1017,6 +1008,27 @@ main #eventsList article .otherDataDiv .eventDateDiv {
 }
 main #eventsList article:hover {
   border: solid 2px var(--color1);
+}
+
+#toastBox {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
 }
 
 body .deleteContainer {
