@@ -1087,6 +1087,16 @@ td .checkAvailability {
   background-color: var(--color1);
 }
 
+input[type=checkbox] {
+  width: 90%;
+  height: 90%;
+  background-color: var(--color1);
+}
+
+input[type=checkbox]:checked::after {
+  color: var(--color1);
+}
+
 body {
   font-family: Ubuntu;
   color: var(--colorText);

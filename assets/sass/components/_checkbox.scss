@@ -1,0 +1,8 @@
+input[type="checkbox"] {
+    @include box(90%);
+    background-color: var(--color1);
+}
+
+input[type="checkbox"]:checked::after  {
+    color: var(--color1);
+}
