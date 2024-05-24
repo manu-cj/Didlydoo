@@ -45,6 +45,9 @@ const displayAllEvents = (datas) => {
     
         eventsList.appendChild(eventArticle);
 
+        //opcity pour intro
+        eventArticle.style.opacity = '0'
+
         //ajout participant
         const participantContainer = createDiv('div',otherDatasDiv,null,'participantContainer')
         const participantInput = createDiv('input',participantContainer,null,'participantInput')

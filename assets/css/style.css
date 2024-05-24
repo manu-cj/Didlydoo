@@ -330,6 +330,7 @@ template {
 }
 
 .fromLeft {
+  opacity: 0;
   animation: fromLeft 0.5s 0.5s linear forwards;
 }
 
@@ -344,6 +345,7 @@ template {
   }
 }
 .fromRight {
+  opacity: 0;
   animation: fromRight 0.5s 0.5s linear forwards;
 }
 
@@ -398,7 +400,7 @@ template {
   }
 }
 .introDarkmode {
-  transform: translateX(1000px);
+  opacity: 0;
   animation: introDarkmode 2s 2s ease-out forwards;
 }
 
@@ -416,19 +418,18 @@ template {
 }
 .introAddEvent {
   opacity: 0;
-  animation: introAddEvent 1s 1s ease-out forwards;
+  transform: translateX(-1000px);
+  animation: introAddEvent 1s 1.5s ease-out forwards;
 }
 
 @keyframes introAddEvent {
   0% {
     transform: translateX(-1000px);
     opacity: 0;
-    filter: blur(10px);
   }
   100% {
     transform: translateX(0);
     opacity: 1;
-    filter: blur(0);
   }
 }
 .introFooter {
