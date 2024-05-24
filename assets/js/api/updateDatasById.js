@@ -1,4 +1,4 @@
-const updateDatas = (id, nameData, descriptionData, authorData, datesData) => {
+const updateDatas = (id, nameData, descriptionData, authorData) => {
     const url = `http://localhost:3000/api/events/${id}`;
     let datas = {
         "name" : nameData,

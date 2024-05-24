@@ -68,7 +68,7 @@
 
 .introDarkmode {
     transform:translateX(1000px);
-    animation:introDarkmode 2s 2s ease-out forwards;
+    animation:introDarkmode 1s  ease-out forwards;
 }
 @keyframes introDarkmode {
     0%{
@@ -85,7 +85,7 @@
 
 .introAddEvent {
     opacity:0;
-    animation:introAddEvent 1s 1s ease-out forwards;
+    animation:introAddEvent 1s ease-out forwards;
 }
 @keyframes introAddEvent {
     0%{

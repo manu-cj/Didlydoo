@@ -1,7 +1,9 @@
 import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
-import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
-import { sendForm } from "../api/addEvent.js";
+import { createDiv, closeModalFNC, blurEverything, sanityzeForm, compareDates, stripTag } from "./functions.js";
+
+
+
 
 const addEventModal = (inputValue, datas) => {
   blurEverything();
@@ -131,37 +133,48 @@ const addEventModal = (inputValue, datas) => {
     gestionDate.insertBefore(deleteDate, gestionDate.firstChild);
     gestionDate.style.justifyContent = "space-between";
 
-    labelDateStart.textContent = "Dates :";
-    const newInputDate = document.createElement("input");
-    newInputDate.type = "date";
-    newInputDate.classList.add("input-date");
-    dateFormDiv.appendChild(newInputDate);
-    if (counterInputDate === 6) {
-      addDate.remove();
-    }
-  });
+        labelDateStart.textContent = 'Dates :';
+        const newInputDate = document.createElement('input');
+        newInputDate.type = 'date';
+        newInputDate.classList.add('input-date');
+        dateFormDiv.appendChild(newInputDate);
+        
+        let dates = document.querySelectorAll('.input-date');
+        compareDates(dates)
+        if (counterInputDate === 6) {
+            addDate.remove();
+        }
+        
+    })
 
-  deleteDate.addEventListener("click", () => {
-    if (counterInputDate > 1) {
-      console.log(counterInputDate);
-      counterInputDate--;
+    
+    
 
-      // Supprimer le dernier élément de dateFormDiv
-      if (dateFormDiv.lastChild) {
-        dateFormDiv.removeChild(dateFormDiv.lastChild);
-      }
-    }
+    deleteDate.addEventListener('click', () => {
+        if (counterInputDate > 1) {
+            console.log(counterInputDate);
+            counterInputDate--;
+            
+            // Supprimer le dernier élément de dateFormDiv
+            if (dateFormDiv.lastChild) {
+                dateFormDiv.removeChild(dateFormDiv.lastChild);
+            }
+        }
+    
+        if (counterInputDate === 1) {
+            deleteDate.remove();
+            gestionDate.style.justifyContent = 'center';
+        }
+    
+        if (counterInputDate < 6 && !document.body.contains(addDate)) {
+            gestionDate.appendChild(addDate);
+        }
+    })
 
-    if (counterInputDate === 1) {
-      deleteDate.remove();
-      gestionDate.style.justifyContent = "center";
-    }
 
-    if (counterInputDate < 6 && !document.body.contains(addDate)) {
-      gestionDate.appendChild(addDate);
-    }
-  });
-
+    let dates = document.querySelectorAll('.input-date');
+    compareDates(dates)
+    sanityzeForm(inputEventName, textareaDescription, inputEventAuthor);
 
   // Fermeture de la modal
   const closeModal = closeDiv.querySelector("i");
@@ -179,7 +192,7 @@ const addEventModal = (inputValue, datas) => {
    // Ajout de l'event + fermeture de la modale 
    form.addEventListener('submit', function(e) {
     if (inputValue === 'update') {
-        updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
+        updateDatas(datas.id, stripTag(inputEventName.value), stripTag(textareaDescription.value), stripTag(inputEventAuthor.value));
         closeModalFNC(modalSection)
         
     } else {
@@ -192,7 +205,7 @@ const addEventModal = (inputValue, datas) => {
                 
             });
     
-            sendForm(form, formDates) ;
+            sendForm(form, stripTag(formDates)) ;
             closeModalFNC(modalSection) ;
     }
     
