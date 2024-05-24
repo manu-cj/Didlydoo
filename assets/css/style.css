@@ -445,7 +445,7 @@ template {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
   100% {
     transform: translateY(0);
@@ -948,6 +948,10 @@ main #eventsList article .controlArticle i:hover {
   color: var(--color1);
   transform: scale(1.1);
 }
+main #eventsList article h2 {
+  color: var(--colorText);
+  font-family: Goldman;
+}
 main #eventsList article :where(.seeMore, .seeLess) {
   cursor: pointer;
   margin: 10px;
@@ -961,36 +965,21 @@ main #eventsList article :where(.seeMore, .seeLess):hover {
   transform: scale(110%);
 }
 main #eventsList article .otherDataDiv {
-  padding-left: 50px;
+  padding: 20px;
   width: 100%;
   display: none;
 }
+main #eventsList article .otherDataDiv blockquote {
+  font-weight: 500;
+}
+main #eventsList article .otherDataDiv .eventAuthor {
+  margin-top: 15px;
+}
+main #eventsList article .otherDataDiv .eventDateDiv {
+  margin-top: 15px;
+}
 main #eventsList article:hover {
   border: solid 2px var(--color1);
-}
-main #eventsList h2 {
-  color: var(--colorText);
-}
-
-#toastBox {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 20px;
-}
-
-.toast {
-  width: 400px;
-  height: 80px;
-  background: white;
-  margin: 15px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
 }
 
 #toastBox {
@@ -1063,6 +1052,15 @@ body .deleteContainer .deleteForm .deleteAnswers .deleteNo {
 }
 body .deleteContainer .deleteForm .deleteAnswers .deleteNo:hover {
   background-color: red;
+}
+
+table {
+  width: 100%;
+  border: 1px solid;
+}
+
+td {
+  border: 1px solid;
 }
 
 body {
