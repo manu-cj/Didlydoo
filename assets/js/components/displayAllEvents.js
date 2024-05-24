@@ -1,5 +1,7 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
 import { table } from "./table.js";
+import { createDiv } from "./functions.js"
+
 
 const displayAllEvents = (datas) => {
     datas.forEach(data => {
