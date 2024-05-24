@@ -14,6 +14,7 @@
     "attendees": []
   },
   {
+<<<<<<< HEAD
     "id": "d4b11a28dac6",
     "name": "Divorce de Pepito",
     "author": "Manu",
@@ -30,6 +31,8 @@
     "attendees": []
   },
   {
+=======
+>>>>>>> origin/arnaud
     "id": "9f20377e4607",
     "name": "Mariage de Pepito",
     "author": "Lyne",
