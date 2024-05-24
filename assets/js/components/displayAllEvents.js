@@ -1,4 +1,7 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
+import { table, updateAvailable } from "./table.js";
+import { createDiv } from "./functions.js"
+
 
 const displayAllEvents = (datas) => {
     datas.forEach(data => {
@@ -10,19 +13,13 @@ const displayAllEvents = (datas) => {
         const otherDatasDiv = document.createElement('div');
         const eventDescription = document.createElement('blockquote');
         const eventAuthor = document.createElement('cite');
-        const eventDateDiv = document.createElement('div');
-    
-        data.dates.forEach(dataDate => {
-            const eventDate = document.createElement('h5');
-    
-            eventDate.classList.add('eventDate');
-    
-            eventDate.textContent = dataDate.date;
-    
-            eventDateDiv.appendChild(eventDate)
-            
-        });
+        const eventDateDiv = document.createElement('table');
         
+        table(data.dates,eventDateDiv,data.id, null);
+    
+        
+        
+
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
         seeMore.classList.add('seeMore');
@@ -38,7 +35,7 @@ const displayAllEvents = (datas) => {
         eventName.textContent = data.name;
         seeMore.innerHTML = `See more <i class="fas fa-caret-down"></i>`;
         eventDescription.textContent = data.description;
-        eventAuthor.textContent = data.author;
+        eventAuthor.textContent = 'author: '+data.author;
     
         eventArticle.appendChild(controlArticle);
         eventArticle.appendChild(eventName);
@@ -50,6 +47,25 @@ const displayAllEvents = (datas) => {
         otherDatasDiv.appendChild(eventDateDiv);
     
         eventsList.appendChild(eventArticle);
+
+        //ajout participant
+        const participantContainer = createDiv('div',otherDatasDiv,null,'participantContainer')
+        const participantInput = createDiv('input',participantContainer,null,'participantInput')
+        participantInput.placeholder = 'Enter your name'
+        const participantAdd = createDiv('div',participantContainer,null,'participantAdd')
+        createDiv('p',participantAdd,'+')
+        updateAvailable(data.id, data.dates)
+        participantAdd.addEventListener('click', () => {
+            const nameInput = participantInput.value
+            console.log(nameInput)
+        })
+
+        participantInput.addEventListener('keyup', (event) => {
+            if(event.key=='Enter') {
+                const nameInput = participantInput.value
+                console.log(nameInput)
+            }
+        })
     });
 
     const updateBtn = document.querySelectorAll('.fa-pencil-alt'); 
@@ -73,16 +89,6 @@ const displayAllEvents = (datas) => {
                 otherDataDivs[i].style.display = 'none';
             }
         });
-
-   
-  
-        
-        
-        
-
-        
-        
-
 
         const data = datas[i];
         
