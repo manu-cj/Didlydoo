@@ -1061,6 +1061,11 @@ table {
 
 td {
   border: 1px solid;
+  text-align: center;
+}
+td .checkAvailability {
+  width: 80%;
+  height: 80%;
 }
 
 body {

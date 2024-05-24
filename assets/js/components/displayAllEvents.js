@@ -13,8 +13,8 @@ const displayAllEvents = (datas) => {
         const eventDescription = document.createElement('blockquote');
         const eventAuthor = document.createElement('cite');
         const eventDateDiv = document.createElement('table');
-
-        table(data.dates,eventDateDiv)
+        
+        table(data.dates,eventDateDiv,data.id)
     
         // data.dates.forEach(dataDate => {
         //     const eventDate = document.createElement('h5');
