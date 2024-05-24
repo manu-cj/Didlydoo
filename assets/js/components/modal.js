@@ -1,218 +1,210 @@
-
 import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
 import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
 import { sendForm } from "../api/addEvent.js";
 
 const addEventModal = (inputValue, datas) => {
+  blurEverything();
 
-    blurEverything()
+  const main = document.querySelectorAll("body");
+  const addEventButton = document.getElementById("addEventButton");
 
-    const main = document.querySelectorAll('body');
-    const addEventButton = document.getElementById('addEventButton');
+  const modalSection = document.createElement("section");
+  const modalDiv = document.createElement("div");
+  const closeDiv = document.createElement("div");
+  const form = document.createElement("form");
 
-    const modalSection = document.createElement('section');
-    const modalDiv = document.createElement('div');
-    const closeDiv = document.createElement('div');
-    const form = document.createElement('form');
+  const labelInputName = document.createElement("label");
+  const inputEventName = document.createElement("input");
 
-    const labelInputName = document.createElement('label');
-    const inputEventName = document.createElement('input');
+  const labelDescription = document.createElement("label");
+  const textareaDescription = document.createElement("textarea");
 
-    const labelDescription = document.createElement('label');
-    const textareaDescription = document.createElement('textarea');
+  const labelInputAuthor = document.createElement("label");
+  const inputEventAuthor = document.createElement("input");
 
-    const labelInputAuthor = document.createElement('label');
-    const inputEventAuthor = document.createElement('input');
+  const dateFormDiv = document.createElement("div");
+  const startDiv = document.createElement("div");
 
-    const dateFormDiv = document.createElement('div');
-    const startDiv = document.createElement('div');
-    
+  const labelDateStart = document.createElement("label");
+  const inputDateStart = document.createElement("input");
 
-    const labelDateStart = document.createElement('label');
-    const inputDateStart = document.createElement('input');
+  const gestionDate = document.createElement("div");
+  const addDate = document.createElement("input");
 
-    const gestionDate = document.createElement('div');
-    const addDate = document.createElement('input');
+  const labelDateEnd = document.createElement("label");
+  const inputDateEnd = document.createElement("input");
 
-    const labelDateEnd = document.createElement('label');
-    const inputDateEnd = document.createElement('input');
+  const inputSubmit = document.createElement("input");
 
-    const inputSubmit = document.createElement('input');
+  // Ajout des paramètres pour les éléments html
+  modalSection.classList.add("modal-section");
 
-    // Ajout des paramètres pour les éléments html
-    modalSection.classList.add('modal-section');
+  modalDiv.classList.add("modal-div");
 
-    modalDiv.classList.add('modal-div');
+  closeDiv.classList.add("close-div");
+  closeDiv.innerHTML = '<i class="fas fa-times"></i>';
 
-    closeDiv.classList.add('close-div');
-    closeDiv.innerHTML = '<i class="fas fa-times"></i>';
+  form.method = "post";
 
-    form.method = 'post';
+  labelInputName.htmlFor = "input-event-name";
+  labelInputName.textContent = "Event name :";
+  inputEventName.id = "input-event-name";
+  inputEventName.type = "text";
+  inputEventName.placeholder = "Add name";
+  inputEventName.name = "name";
 
-    labelInputName.htmlFor = 'input-event-name';
-    labelInputName.textContent = 'Event name :';
-    inputEventName.id = 'input-event-name';
-    inputEventName.type = 'text';
-    inputEventName.placeholder = 'Add name';
-    inputEventName.name = 'name';
+  labelDescription.htmlFor = "textarea-description";
+  labelDescription.textContent = "Event description :";
+  textareaDescription.id = "textarea-description";
+  textareaDescription.placeholder = "Add a description";
+  textareaDescription.name = "description";
+  textareaDescription.cols = "35";
+  textareaDescription.rows = "5";
 
-    labelDescription.htmlFor = 'textarea-description';
-    labelDescription.textContent = 'Event description :';
-    textareaDescription.id = 'textarea-description';
-    textareaDescription.placeholder = 'Add a description';
-    textareaDescription.name = 'description';
-    textareaDescription.cols = '35';
-    textareaDescription.rows = '5';
+  labelInputAuthor.htmlFor = "input-event-author";
+  labelInputAuthor.textContent = "Event author :";
+  inputEventAuthor.id = "input-event-author";
+  inputEventAuthor.type = "text";
+  inputEventAuthor.placeholder = "Add author";
+  inputEventAuthor.name = "author";
 
-    labelInputAuthor.htmlFor = 'input-event-author';
-    labelInputAuthor.textContent = 'Event author :';
-    inputEventAuthor.id = 'input-event-author';
-    inputEventAuthor.type = 'text';
-    inputEventAuthor.placeholder = 'Add author';
-    inputEventAuthor.name = 'author';
+  dateFormDiv.classList.add("date-form-div");
+  startDiv.classList.add("start-date");
 
-    dateFormDiv.classList.add('date-form-div');
-    startDiv.classList.add('start-date');
+  labelDateStart.htmlFor = "input-date-start";
+  labelDateStart.textContent = "Date :";
+  inputDateStart.classList.add("input-date");
+  inputDateStart.type = "date";
+  inputDateStart.name = "date";
 
-    labelDateStart.htmlFor = 'input-date-start';
-    labelDateStart.textContent = 'Date :';
-    inputDateStart.classList.add('input-date');
-    inputDateStart.type = 'date';
-    inputDateStart.name = 'date';
+  addDate.type = "button";
+  addDate.classList.add("add-delete-date", "add-date");
+  addDate.value = "Add date ➕";
 
-    addDate.type = 'button';
-    addDate.classList.add('add-delete-date','add-date');
-    addDate.value ='Add date ➕';
+  gestionDate.classList.add("gestion-date");
 
-    gestionDate.classList.add('gestion-date');
+  inputSubmit.id = "input-submit";
+  inputSubmit.type = "submit";
+  inputSubmit.value = inputValue;
 
-    inputSubmit.id = 'input-submit';
-    inputSubmit.type = 'submit';
-    inputSubmit.value = inputValue;
+  // Ajout des éléments au formulaire
+  form.appendChild(labelInputName);
+  form.appendChild(inputEventName);
+  form.appendChild(labelDescription);
+  form.appendChild(textareaDescription);
+  form.appendChild(labelInputAuthor);
+  form.appendChild(inputEventAuthor);
+  form.appendChild(labelDateStart);
+  dateFormDiv.appendChild(inputDateStart);
+  form.appendChild(dateFormDiv);
+  gestionDate.appendChild(addDate);
+  form.appendChild(gestionDate);
+  form.appendChild(inputSubmit);
 
-    // Ajout des éléments au formulaire
-    form.appendChild(labelInputName);
-    form.appendChild(inputEventName);
-    form.appendChild(labelDescription);
-    form.appendChild(textareaDescription);
-    form.appendChild(labelInputAuthor);
-    form.appendChild(inputEventAuthor);
-    form.appendChild(labelDateStart);
-    dateFormDiv.appendChild(inputDateStart);
-    form.appendChild(dateFormDiv);
-    gestionDate.appendChild(addDate);
-    form.appendChild(gestionDate);
-    form.appendChild(inputSubmit);
+  // Ajout du formulaire à la section modale et la section modale au main
+  modalDiv.appendChild(closeDiv);
+  modalDiv.appendChild(form);
+  modalSection.appendChild(modalDiv);
+  main[0].appendChild(modalSection);
 
-    // Ajout du formulaire à la section modale et la section modale au main
-    modalDiv.appendChild(closeDiv);
-    modalDiv.appendChild(form);
-    modalSection.appendChild(modalDiv);
-    main[0].appendChild(modalSection);
+  let counterInputDate = 1;
+  const deleteDate = document.createElement("input");
+  deleteDate.type = "button";
+  deleteDate.classList.add("add-delete-date", "delete-date");
+  deleteDate.value = "➖ Delete date";
+  // Affichage des données lors de l'update
+  if (inputValue === "update") {
+    form.method = "patch";
+    inputEventName.value = datas.name;
+    textareaDescription.value = datas.description;
+    inputEventAuthor.value = datas.author;
+    counterInputDate = datas.dates.length;
+    dateFormDiv.remove();
+    gestionDate.remove();
+  }
 
-    let counterInputDate = 1;
-    const deleteDate = document.createElement('input');
-    deleteDate.type = 'button';
-    deleteDate.classList.add('add-delete-date','delete-date');
-    deleteDate.value ='➖ Delete date';
-    // Affichage des données lors de l'update
-    if (inputValue === 'update') {
-        form.method = 'patch';
-        inputEventName.value = datas.name;
-        textareaDescription.value = datas.description;
-        inputEventAuthor.value = datas.author;
-        counterInputDate = datas.dates.length;
-        dateFormDiv.remove();
-        gestionDate.remove()
+  // Donne la possibilité de choisir plusieurs date
+  addDate.addEventListener("click", () => {
+    counterInputDate++;
+    console.log(counterInputDate);
+    gestionDate.insertBefore(deleteDate, gestionDate.firstChild);
+    gestionDate.style.justifyContent = "space-between";
+
+    labelDateStart.textContent = "Dates :";
+    const newInputDate = document.createElement("input");
+    newInputDate.type = "date";
+    newInputDate.classList.add("input-date");
+    dateFormDiv.appendChild(newInputDate);
+    if (counterInputDate === 6) {
+      addDate.remove();
+    }
+  });
+
+  deleteDate.addEventListener("click", () => {
+    if (counterInputDate > 1) {
+      console.log(counterInputDate);
+      counterInputDate--;
+
+      // Supprimer le dernier élément de dateFormDiv
+      if (dateFormDiv.lastChild) {
+        dateFormDiv.removeChild(dateFormDiv.lastChild);
+      }
     }
 
-    // Donne la possibilité de choisir plusieurs date
-    addDate.addEventListener('click', () => {
-        counterInputDate++;
-        console.log(counterInputDate);
-        gestionDate.insertBefore(deleteDate, gestionDate.firstChild);
-        gestionDate.style.justifyContent = 'space-between';
+    if (counterInputDate === 1) {
+      deleteDate.remove();
+      gestionDate.style.justifyContent = "center";
+    }
 
-        labelDateStart.textContent = 'Dates :';
-        const newInputDate = document.createElement('input');
-        newInputDate.type = 'date';
-        newInputDate.classList.add('input-date');
-        dateFormDiv.appendChild(newInputDate);
-        if (counterInputDate === 6) {
-            addDate.remove();
-        }
-        
-    })
+    if (counterInputDate < 6 && !document.body.contains(addDate)) {
+      gestionDate.appendChild(addDate);
+    }
+  });
 
-    deleteDate.addEventListener('click', () => {
-        if (counterInputDate > 1) {
-            console.log(counterInputDate);
-            counterInputDate--;
-            
-            // Supprimer le dernier élément de dateFormDiv
-            if (dateFormDiv.lastChild) {
-                dateFormDiv.removeChild(dateFormDiv.lastChild);
-            }
-        }
-    
-        if (counterInputDate === 1) {
-            deleteDate.remove();
-            gestionDate.style.justifyContent = 'center';
-        }
-    
-        if (counterInputDate < 6 && !document.body.contains(addDate)) {
-            gestionDate.appendChild(addDate);
-        }
-    })
 
-    
+  // Fermeture de la modal
+  const closeModal = closeDiv.querySelector("i");
 
-    // Fermeture de la modal
-    const closeModal = closeDiv.querySelector('i');
+  closeModal.addEventListener("click", () => {
+    closeModalFNC(modalSection);
+  });
 
-    closeModal.addEventListener('click', () => {
+  modalSection.addEventListener("click", (e) => {
+    if (!modalDiv.contains(e.target)) {
+      closeModalFNC(modalSection);
+    }
+  });
+
+   // Ajout de l'event + fermeture de la modale 
+   form.addEventListener('submit', function(e) {
+    if (inputValue === 'update') {
+        updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
         closeModalFNC(modalSection)
-    })
-
-    modalSection.addEventListener('click', (e) => {
-        if (!modalDiv.contains(e.target)) {
-            closeModalFNC(modalSection);
-        }
-    });
-
-    // Ajout de l'event + fermeture de la modale 
-    form.addEventListener('submit', function() {
-        closeModalFNC(modalSection);
-        if (inputValue === 'update') {
-            updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
-            
-        }
         
-    // fetch API method post 
-    // refresh 
-
-
-    // envoyer le formulaire
+    } else {
+            e.preventDefault();
+            const dates = document.querySelectorAll('.input-date')
+            const formDates = []
+            dates.forEach(element => { 
+                formDates.push(element.value) ;
+                console.log(formDates)
+                
+            });
     
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const dates = document.querySelectorAll('.input-date')
-        const formDates = []
-        dates.forEach(element => { 
-            formDates.push(element.value) ;
-            console.log(formDates)
-            
-        });
+            sendForm(form, formDates) ;
+            closeModalFNC(modalSection) ;
+    }
+    
+// fetch API method post 
+// refresh 
 
-        sendForm(form, formDates) ;
-        closeModalFNC(modalSection) ;
-    })
+
+})
 };
 
-
-
-function deleteEventModal(data) {
+ 
+  function deleteEventModal(data) {
     // code pour supprimer
 
     blurEverything()
@@ -229,9 +221,8 @@ function deleteEventModal(data) {
 
     const no = createDiv('div',answers,'No','deleteNo')
 
-    yes.addEventListener('click', (e) => {
+    yes.addEventListener('click', () => {
         closeModalFNC(container)
-        e.preventDefault()
         deleteDataById(data)
     })
 
@@ -244,9 +235,10 @@ function deleteEventModal(data) {
             closeModalFNC(container);
         }
     })
-
 }
+
 
 export default addEventModal;
 
-export { deleteEventModal };
+export { deleteEventModal } 
+

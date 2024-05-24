@@ -1,5 +1,4 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
-import { createDiv } from "./functions.js";
 import { table } from "./table.js";
 
 const displayAllEvents = (datas) => {
@@ -15,22 +14,7 @@ const displayAllEvents = (datas) => {
         const eventDateDiv = document.createElement('table');
 
         table(data.dates,eventDateDiv)
-    
-        // data.dates.forEach(dataDate => {
-        //     const eventDate = document.createElement('h5');
-    
-        //     eventDate.classList.add('eventDate');
-    
-        //     eventDate.textContent = dataDate.date;
-    
-        //     eventDateDiv.appendChild(eventDate)
-
-        //     attendeesFNC(data,dataDate.date,)
-
-        //     for(let i=0; i<names.length; i++) {
-        //         createDiv('p',eventDateDiv,names[i])
-        //     }
-        // });
+   
         
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
