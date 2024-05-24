@@ -45,20 +45,20 @@ export function table(dates, parent, id) {
                checkbox.setAttribute('checked','true')
                checkbox.classList.add('checked')
                data.available = true
-               checkboxEvent(checkbox,data)
+               checkboxEvent(checkbox,data,dates)
             } else {
                 //unvailable
                 const td = createDiv('td', tr);
                 const checkboxContainer = createDiv('div',td,null,'checkboxContainer')
                 const checkbox = createDiv('div',checkboxContainer,null,'checkbox')
                 checkbox.setAttribute('checked','false')
-                checkboxEvent(checkbox,data)
+                checkboxEvent(checkbox,data,dates)
             }
         } 
     }
 }
 
-function checkboxEvent(checkbox,data) {
+function checkboxEvent(checkbox,data,dates) {
     checkbox.addEventListener('click', () => {
         const checked = checkbox.getAttribute('checked')
         data.available = checked == 'true' ? false : true
@@ -74,5 +74,6 @@ function checkboxEvent(checkbox,data) {
         console.log(data.name)
         console.log(data.date)
         console.log(data.available)
+        console.log(dates)
     })
 }

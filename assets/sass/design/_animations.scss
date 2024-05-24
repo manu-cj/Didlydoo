@@ -70,19 +70,16 @@
 
 .introDarkmode {
     opacity:0;
-    //transform:translateX(1000px);
-    animation:introDarkmode 2s 2s ease-out forwards;
+    animation:introDarkmode 1s 2s ease-out forwards;
 }
 @keyframes introDarkmode {
     0%{
         transform:translateX(1000px);
         opacity:0;
-        filter:blur(10px);
     }
     100%{
         transform:translateX(0);
         opacity:1;
-        filter:blur(0);
     }
 }
 

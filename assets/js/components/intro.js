@@ -1,11 +1,10 @@
 import { sleep, createDiv } from "./functions.js";
 
 export async function intro() {
-    //const addEvent = document.querySelector('#addEventButton')
-    //addEvent.style.opacity = '0'
 
     const darkmode = document.querySelector('#darkmodeButton')
-    darkmode.style.opacity = '0'
+    //darkmode.style.opacity = '0'
+    darkmode.classList.add('introDarkmode')
 
     await sleep(100)
     document.body.classList.add('introFadeIn')
@@ -13,10 +12,7 @@ export async function intro() {
     const title = document.querySelector('h1')
     title.classList.add('introTitle')
 
-    
     darkmode.classList.add('introDarkmode')
-
-    //addEvent.classList.add('introAddEvent')
 
     await sleep(300)
 
@@ -41,8 +37,6 @@ export async function intro() {
     await sleep(1300)
 
     footer.classList.remove('introFooter')
-    //addEvent.classList.remove('introAddEvent')
-    darkmode.classList.remove('introDarkmode')
     title.classList.remove('introTitle')
 
     for(let i=0; i<spans.length; i++) {
