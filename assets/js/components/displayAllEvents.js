@@ -15,22 +15,6 @@ const displayAllEvents = (datas) => {
         const eventDateDiv = document.createElement('table');
         
         table(data.dates,eventDateDiv,data.id)
-    
-        // data.dates.forEach(dataDate => {
-        //     const eventDate = document.createElement('h5');
-    
-        //     eventDate.classList.add('eventDate');
-    
-        //     eventDate.textContent = dataDate.date;
-    
-        //     eventDateDiv.appendChild(eventDate)
-
-        //     attendeesFNC(data,dataDate.date,)
-
-        //     for(let i=0; i<names.length; i++) {
-        //         createDiv('p',eventDateDiv,names[i])
-        //     }
-        // });
         
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
@@ -59,6 +43,25 @@ const displayAllEvents = (datas) => {
         otherDatasDiv.appendChild(eventDateDiv);
     
         eventsList.appendChild(eventArticle);
+
+        //ajout participant
+        const participantContainer = createDiv('div',otherDatasDiv,null,'participantContainer')
+        const participantInput = createDiv('input',participantContainer,null,'participantInput')
+        participantInput.placeholder = 'Enter your name'
+        const participantAdd = createDiv('div',participantContainer,null,'participantAdd')
+        createDiv('p',participantAdd,'+')
+
+        participantAdd.addEventListener('click', () => {
+            const nameInput = participantInput.value
+            console.log(nameInput)
+        })
+
+        participantInput.addEventListener('keyup', (event) => {
+            if(event.key=='Enter') {
+                const nameInput = participantInput.value
+                console.log(nameInput)
+            }
+        })
     });
 
     const updateBtn = document.querySelectorAll('.fa-pencil-alt'); 

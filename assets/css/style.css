@@ -741,7 +741,7 @@ main::-webkit-scrollbar-thumb {
   left: 20px;
 }
 
-.flexCenterCenter, body .deleteContainer, footer #socials div, footer #becode, header {
+.flexCenterCenter, .participantContainer .participantAdd, body .deleteContainer, footer #socials div, footer #becode, header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1066,6 +1066,25 @@ td {
 td .checkAvailability {
   width: 80%;
   height: 80%;
+}
+
+.participantContainer {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.participantContainer .participantAdd {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--colorBackground);
+  background-color: var(--colorText);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.participantContainer .participantAdd:hover {
+  color: var(--colorText);
+  background-color: var(--color1);
 }
 
 body {

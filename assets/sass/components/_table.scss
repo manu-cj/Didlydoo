@@ -11,3 +11,23 @@ td {
         @include box(80%);
     }
 }
+
+.participantContainer {
+    display:flex;
+    gap:15px;
+    margin-top: 15px;
+
+    .participantAdd {
+        @extend .flexCenterCenter;
+        @include box(30px);
+        border-radius: 50%;
+        color:var(--colorBackground);
+        background-color: var(--colorText);
+        cursor:pointer;
+        transition: 0.3s;
+    }
+    .participantAdd:hover {
+        color:var(--colorText);
+        background-color: var(--color1);
+    }
+}
