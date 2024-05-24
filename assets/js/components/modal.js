@@ -2,6 +2,7 @@ import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
 import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
 import { sendForm } from "../api/addEvent.js";
+import { toastNotifications } from "./toast_notifications.js";
 
 const addEventModal = (inputValue, datas) => {
   blurEverything();
@@ -31,10 +32,6 @@ const addEventModal = (inputValue, datas) => {
 
   const gestionDate = document.createElement("div");
   const addDate = document.createElement("input");
-
-  const labelDateEnd = document.createElement("label");
-  const inputDateEnd = document.createElement("input");
-
   const inputSubmit = document.createElement("input");
 
   // Ajout des paramètres pour les éléments html
@@ -113,9 +110,11 @@ const addEventModal = (inputValue, datas) => {
   deleteDate.type = "button";
   deleteDate.classList.add("add-delete-date", "delete-date");
   deleteDate.value = "➖ Delete date";
+  
   // Affichage des données lors de l'update
   if (inputValue === "update") {
     form.method = "patch";
+    inputSubmit.classList.add ("updateButton") ;
     inputEventName.value = datas.name;
     textareaDescription.value = datas.description;
     inputEventAuthor.value = datas.author;
@@ -180,7 +179,8 @@ const addEventModal = (inputValue, datas) => {
    form.addEventListener('submit', function(e) {
     if (inputValue === 'update') {
         updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
-        closeModalFNC(modalSection)
+        closeModalFNC(modalSection) ;
+        toastNotifications(change) ;
         
     } else {
             e.preventDefault();
@@ -194,10 +194,8 @@ const addEventModal = (inputValue, datas) => {
     
             sendForm(form, formDates) ;
             closeModalFNC(modalSection) ;
+           toastNotifications(success) ;
     }
-    
-// fetch API method post 
-// refresh 
 
 
 })
@@ -222,13 +220,14 @@ const addEventModal = (inputValue, datas) => {
     const no = createDiv('div',answers,'No','deleteNo')
 
     yes.addEventListener('click', () => {
-        closeModalFNC(container)
-        deleteDataById(data)
-    })
+        closeModalFNC(container) ;
+        deleteDataById(data) ;
+        toastNotifications(deleteNotification);
+    });
 
     no.addEventListener('click', () => {
-        closeModalFNC(container)
-    })
+        closeModalFNC(container);
+    });
 
     container.addEventListener('click', (e) => {
         if (!form.contains(e.target)) {
