@@ -329,6 +329,34 @@ template {
   display: none;
 }
 
+.fromLeft {
+  animation: fromLeft 0.5s 0.5s linear forwards;
+}
+
+@keyframes fromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fromRight {
+  animation: fromRight 0.5s 0.5s linear forwards;
+}
+
+@keyframes fromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .introFadeIn {
   animation: introFadeIn 0.5s linear forwards;
 }
@@ -865,7 +893,7 @@ header #darkmodeButton {
   position: absolute;
   top: 10%;
   right: 0;
-  height: 17%;
+  height: 20px;
   transition: 0.3s;
   cursor: pointer;
 }

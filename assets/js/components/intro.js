@@ -1,6 +1,7 @@
 import { sleep, createDiv } from "./functions.js";
 
 export async function intro() {
+    await sleep(300)
     document.body.classList.add('introFadeIn')
 
     const title = document.querySelector('h1')
@@ -11,6 +12,12 @@ export async function intro() {
 
     const addEvent = document.querySelector('#addEventButton')
     addEvent.classList.add('introAddEvent')
+
+    //apparition list gauche droite
+    const articles = document.querySelectorAll('article')
+
+    listAnimation(articles)
+
 
     const footer = document.querySelector('footer')
     footer.classList.add('introFooter')
@@ -35,5 +42,18 @@ export async function intro() {
     for(let i=0; i<spans.length; i++) {
         spans[i].classList.add('titleJump')
         await sleep(50)
+    }
+}
+
+async function listAnimation(articles) {
+    for(let i=0; i<articles.length; i++) {
+
+        if(i%2==0) {
+            articles[i].classList.add('fromLeft')
+        } else {
+            articles[i].classList.add('fromRight')
+        }
+
+        await sleep(250)
     }
 }
