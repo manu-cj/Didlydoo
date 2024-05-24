@@ -1,5 +1,5 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
-import { table } from "./table.js";
+import { table, updateAvailable } from "./table.js";
 import { createDiv } from "./functions.js"
 
 
@@ -15,8 +15,11 @@ const displayAllEvents = (datas) => {
         const eventAuthor = document.createElement('cite');
         const eventDateDiv = document.createElement('table');
         
-        table(data.dates,eventDateDiv,data.id)
+        table(data.dates,eventDateDiv,data.id, null);
+    
         
+        
+
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
         seeMore.classList.add('seeMore');
@@ -45,16 +48,13 @@ const displayAllEvents = (datas) => {
     
         eventsList.appendChild(eventArticle);
 
-        //opcity pour intro
-        eventArticle.style.opacity = '0'
-
         //ajout participant
         const participantContainer = createDiv('div',otherDatasDiv,null,'participantContainer')
         const participantInput = createDiv('input',participantContainer,null,'participantInput')
         participantInput.placeholder = 'Enter your name'
         const participantAdd = createDiv('div',participantContainer,null,'participantAdd')
         createDiv('p',participantAdd,'+')
-
+        updateAvailable(data.id, data.dates)
         participantAdd.addEventListener('click', () => {
             const nameInput = participantInput.value
             console.log(nameInput)
