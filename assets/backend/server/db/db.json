@@ -1,0 +1,655 @@
+[
+  {
+    "id": "d4b11a28dac6",
+    "name": "Divorce de Pepito",
+    "author": "Manu",
+    "description": "Bah le Divorce de Pepito. venez !",
+    "dates": [
+      "2022-03-17",
+      "2022-03-18",
+      "2022-03-21",
+      "2022-03-22"
+    ],
+    "created_at": "2024-05-23T14:43:28.987Z",
+    "num_modification": 3,
+    "last_modification": "2024-05-24T12:45:36.201Z",
+    "attendees": []
+  },
+  {
+    "id": "9f20377e4607",
+    "name": "Mariage de Pepito",
+    "author": "Lyne",
+    "description": "Bah le mariage de Pepito. venez !",
+    "dates": [
+      "2022-03-17",
+      "2022-03-18",
+      "2022-03-21",
+      "2022-03-22"
+    ],
+    "created_at": "2024-05-23T14:42:19.033Z",
+    "num_modification": 0,
+    "last_modification": "2024-05-23T14:42:19.033Z",
+    "attendees": []
+  },
+  {
+    "id": "f5b6564b5dc4",
+    "name": "Enterrement de Bill ",
+    "description": "Bill est décédé, sniff",
+    "author": "Une blonde habillé en jaune",
+    "dates": [
+      "2022-03-17",
+      "2022-03-18",
+      "2022-03-21",
+      "2022-03-22",
+      "2022-03-19",
+      "2022-03-28"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-03-17",
+            "available": true
+          },
+          {
+            "date": "2022-03-18",
+            "available": false
+          },
+          {
+            "date": "2022-03-21",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Lyne",
+        "dates": [
+          {
+            "date": "2022-03-17",
+            "available": false
+          },
+          {
+            "date": "2022-03-21",
+            "available": true
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-15T00:00",
+    "num_modification": 18,
+    "last_modification": "2024-05-24T11:32:20.039Z"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  },
+  {
+    "id": "38b643aeb883",
+    "name": "The big sale @ The Mall",
+    "description": "I want to buy stuff at the mall, but don't want to go alone who is up?",
+    "author": "Jean D'eau",
+    "dates": [
+      "2022-01-10",
+      "2022-02-10",
+      "2022-03-10",
+      "2022-03-11",
+      "2022-03-12"
+    ],
+    "attendees": [
+      {
+        "name": "Manu",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          }
+        ]
+      },
+      {
+        "name": "Arnaud",
+        "dates": [
+          {
+            "date": "2022-01-10",
+            "available": true
+          },
+          {
+            "date": "2022-02-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-10",
+            "available": true
+          },
+          {
+            "date": "2022-03-11",
+            "available": true
+          },
+          {
+            "date": "2022-03-12",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2021-11-13T14:00",
+    "num_modification": 0,
+    "last_modification": "2021-11-13T14:00"
+  }
+]

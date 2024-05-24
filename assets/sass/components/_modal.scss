@@ -1,0 +1,120 @@
+.modal-section {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    //background-color: rgba(151, 151, 152, 0.54);
+    z-index: 100;
+    @extend .flexColumnCenterCenter;
+
+    .modal-div {
+        position: relative;
+        width: 400px;
+        @include box(400px,auto);
+        //@include box(400px,550px);
+        border-radius: 15px;
+        color:var(--colorText);
+        background-color: var(--colorBackground);
+        
+        .close-div {
+            width: 100%;
+            padding:15px 15px 0 0;
+            @extend .flexRowEndCenter;
+
+            .fa-times {
+                color: var(--colorText);
+                font-size: 25px;
+                cursor: pointer;
+                &:hover {
+                    color: var(--color1);
+                }
+            }
+        }
+    
+        form {
+            width: 100%;
+            @extend .flexColumnAroundCenter;
+
+            label {
+                font-weight: bold;
+                margin-top: 20px;
+            }
+
+            :where(input, textarea) {
+                border-radius: 5px;
+                padding: 5px 10px;
+                border: 2px black solid;
+                background-color: rgb(234, 234, 234);
+            }
+
+            :where(input:focus, textarea:focus) {
+                background-color: white;
+            }
+
+            #input-event-name, #input-event-author {
+                width: 80%;
+            }
+
+            .input-date{
+                padding: 5px 10px;
+                width:48%;
+            }
+
+            #input-submit {
+                position: absolute;
+                bottom:-50px;
+                font-weight: bold;
+                padding:20px 16px 20px 16px;
+                border: solid 15px var(--colorBackground);
+                color:var(--colorBackground);
+                background-color: var(--colorText);
+                cursor: pointer;
+                border-radius: 50%;
+                transition: 0.3s;
+                &:hover {
+                    color:var(--colorText);
+                    background-color: var(--color1);
+                }
+            }
+
+            .date-form-div {
+                width: 90%;
+                height:auto;
+                margin: 0px 30px 60px 30px;
+                padding: 0px 20px 10px 20px;
+                @extend .flexColumnBetweenStart;
+                flex-wrap: wrap;
+                gap: 10px;                
+            }
+
+            .gestion-date {
+                width: 90%;
+
+                .add-delete-date {
+                    border: none;
+                    color:var(--colorText);
+                    background-color: var(--colorBackground);
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition:0.3s;
+                    &:hover {
+                        color:var(--color1);
+                    }
+                }
+
+                .add-date {
+                    position: absolute;
+                    bottom:20px;
+                    right:20px;
+                }
+
+                .delete-date {
+                    position: absolute;
+                    bottom:20px;
+                    left:20px;
+                }
+            }
+        }
+    }
+}

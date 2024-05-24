@@ -1,0 +1,54 @@
+@use "../extends/_extends_dir";
+
+header {
+    @include box(100%,10dvh);
+    @extend .flexCenterCenter;
+    position: relative;
+
+    h1 {
+        font-size: 2.5rem;
+
+        @include responsive(360px) {
+            font-size: 3.5rem;
+        }
+        
+        font-family: Goldman;
+        cursor: cell;
+
+        span {
+            transition:0.8s;
+        }
+        span:hover {
+            transform: rotate(360deg);
+        }
+    }
+
+    #darkmodeButton {
+        position:absolute;
+        top:10%;
+        right:0;
+
+        @include responsive(480px) {
+            right:3%;
+        }
+
+        height:17%;
+
+        transition:0.3s;
+
+        cursor: pointer;
+    }
+    #darkmodeButton:hover {
+        transform: scale(120%);
+    }
+}
+
+header::before {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    bottom:-30px;
+    left:0;
+    @include box(100%,30px);
+    background: linear-gradient(180deg, var(--colorBackground) 10%, rgba(0, 0, 0, 0) 100%);
+}

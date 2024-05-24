@@ -1,0 +1,79 @@
+footer {
+    @include box(100%,5dvh);
+    @extend .flexBetweenCenter;
+
+    position: relative;
+    padding: 0% 5% 0% 5%;
+
+    #socials {
+        @include box(70%,100%);
+        @extend .flexBetweenCenter;
+
+        @include responsive(360px) {
+            width:65%;
+        }
+
+        @include responsive(500px) {
+            width:50%;
+        }
+
+        @include responsive(700px) {
+            width:35%;
+        }
+
+        @include responsive(1000px) {
+            width:25%;
+        }
+
+        @include responsive(1440px) {
+            width:20%;
+        }
+
+        div {
+            @extend .flexCenterCenter;
+            cursor:pointer;
+            transition: 0.3s;
+
+            img {
+                @include box(25px,40px);
+            }
+
+            p {
+                text-align: center;
+                font-size: 0.8rem;
+                @include responsive(360px) {
+                    font-size: 1rem;
+                }
+            }
+        }
+        div:hover {
+            transform: scale(110%);
+        }
+    }
+
+    #becode {
+        @include box(20%,100%);
+        @extend .flexCenterCenter;
+
+        img {
+            height: 40%;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+        img:hover {
+            transform: scale(110%);
+        }
+    }
+}
+
+footer::before {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    top:-30px;
+    left:0;
+    @include box(100%,30px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--colorBackground) 90%);
+}
