@@ -12,9 +12,24 @@ const displayAllEvents = (datas) => {
         const eventDescription = document.createElement('blockquote');
         const eventAuthor = document.createElement('cite');
         const eventDateDiv = document.createElement('table');
+        
+        table(data.dates,eventDateDiv,data.id)
+    
+        // data.dates.forEach(dataDate => {
+        //     const eventDate = document.createElement('h5');
+    
+        //     eventDate.classList.add('eventDate');
+    
+        //     eventDate.textContent = dataDate.date;
+    
+        //     eventDateDiv.appendChild(eventDate)
 
-        table(data.dates,eventDateDiv)
-   
+        //     attendeesFNC(data,dataDate.date,)
+
+        //     for(let i=0; i<names.length; i++) {
+        //         createDiv('p',eventDateDiv,names[i])
+        //     }
+        // });
         
         controlArticle.classList.add('controlArticle');
         eventName.classList.add('eventName');
