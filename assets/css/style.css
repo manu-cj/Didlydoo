@@ -371,7 +371,7 @@ template {
 }
 .introDarkmode {
   transform: translateX(1000px);
-  animation: introDarkmode 2s 2s ease-out forwards;
+  animation: introDarkmode 1s ease-out forwards;
 }
 
 @keyframes introDarkmode {
@@ -388,7 +388,7 @@ template {
 }
 .introAddEvent {
   opacity: 0;
-  animation: introAddEvent 1s 1s ease-out forwards;
+  animation: introAddEvent 1s ease-out forwards;
 }
 
 @keyframes introAddEvent {
@@ -970,27 +970,6 @@ main #eventsList article:hover {
 }
 main #eventsList h2 {
   color: var(--colorText);
-}
-
-#toastBox {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 20px;
-}
-
-.toast {
-  width: 400px;
-  height: 80px;
-  background: white;
-  margin: 15px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
 }
 
 #toastBox {

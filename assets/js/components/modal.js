@@ -1,7 +1,9 @@
 
 import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
-import { createDiv, closeModalFNC, blurEverything } from "./functions.js";
+import { createDiv, closeModalFNC, blurEverything, sanityzeForm, compareDates } from "./functions.js";
+
+
 
 
 const addEventModal = (inputValue, datas) => {
@@ -55,6 +57,7 @@ const addEventModal = (inputValue, datas) => {
     inputEventName.id = 'input-event-name';
     inputEventName.type = 'text';
     inputEventName.placeholder = 'Add name';
+    inputEventName.required = true;
 
     labelDescription.htmlFor = 'textarea-description';
     labelDescription.textContent = 'Event description :';
@@ -91,6 +94,7 @@ const addEventModal = (inputValue, datas) => {
     inputSubmit.id = 'input-submit';
     inputSubmit.type = 'submit';
     inputSubmit.value = inputValue;
+    
 
     // Ajout des éléments au formulaire
     form.appendChild(labelInputName);
@@ -124,6 +128,7 @@ const addEventModal = (inputValue, datas) => {
         textareaDescription.value = datas.description;
         inputEventAuthor.value = datas.author;
         counterInputDate = datas.dates.length;
+
         dateFormDiv.remove();
         gestionDate.remove()
     }
@@ -140,11 +145,17 @@ const addEventModal = (inputValue, datas) => {
         newInputDate.type = 'date';
         newInputDate.classList.add('input-date');
         dateFormDiv.appendChild(newInputDate);
+        
+        let dates = document.querySelectorAll('.input-date');
+        compareDates(dates)
         if (counterInputDate === 6) {
             addDate.remove();
         }
         
     })
+
+    
+    
 
     deleteDate.addEventListener('click', () => {
         if (counterInputDate > 1) {
@@ -167,7 +178,10 @@ const addEventModal = (inputValue, datas) => {
         }
     })
 
-    
+
+    let dates = document.querySelectorAll('.input-date');
+    compareDates(dates)
+    sanityzeForm(inputEventName, textareaDescription, inputEventAuthor);
 
     // Fermeture de la modal
     const closeModal = closeDiv.querySelector('i');
@@ -187,7 +201,6 @@ const addEventModal = (inputValue, datas) => {
         closeModalFNC(modalSection);
         if (inputValue === 'update') {
             updateDatas(datas.id, inputEventName.value, textareaDescription.value, inputEventAuthor.value, inputDateStart);
-            
         }
         
     // fetch API method post 
