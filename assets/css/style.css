@@ -741,7 +741,7 @@ main::-webkit-scrollbar-thumb {
   left: 20px;
 }
 
-.flexCenterCenter, .participantContainer .participantAdd, body .deleteContainer, footer #socials div, footer #becode, header {
+.flexCenterCenter, .checkboxContainer, .participantContainer .participantAdd, body .deleteContainer, footer #socials div, footer #becode, header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1056,16 +1056,19 @@ body .deleteContainer .deleteForm .deleteAnswers .deleteNo:hover {
 
 table {
   width: 100%;
-  border: 1px solid;
+  border: 1px solid var(--color1);
 }
 
 td {
-  border: 1px solid;
-  text-align: center;
+  border: 1px solid var(--color1);
 }
 td .checkAvailability {
   width: 80%;
   height: 80%;
+}
+
+.nameTable {
+  border: 0px;
 }
 
 .participantContainer {
@@ -1087,14 +1090,27 @@ td .checkAvailability {
   background-color: var(--color1);
 }
 
-input[type=checkbox] {
-  width: 90%;
-  height: 90%;
-  background-color: var(--color1);
+.checkboxContainer {
+  width: 100%;
+  height: 100%;
 }
 
-input[type=checkbox]:checked::after {
-  color: var(--color1);
+.checkbox {
+  width: 2vh;
+  height: 2vh;
+  border: solid 1px var(--colorText);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkbox:hover {
+  transform: scale(110%);
+  border: solid 1px var(--colorBackground);
+}
+
+.checked {
+  background-color: var(--color1);
 }
 
 body {

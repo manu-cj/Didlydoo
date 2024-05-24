@@ -1,15 +1,20 @@
 table {
     width:100%;
-    border: 1px solid;
+    border: 1px solid var(--color1);
 }
 
+
+
 td {
-    border: 1px solid;
-    text-align: center;
+    border: 1px solid var(--color1);
 
     .checkAvailability {
         @include box(80%);
     }
+}
+
+.nameTable {
+    border:0px;
 }
 
 .participantContainer {
