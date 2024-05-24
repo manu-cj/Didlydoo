@@ -53,13 +53,13 @@ const addEventModal = (inputValue, datas) => {
     inputEventName.id = 'input-event-name';
     inputEventName.type = 'text';
     inputEventName.placeholder = 'Add name';
-    inputEventName.name = 'name of the event';
+    inputEventName.name = 'name';
 
     labelDescription.htmlFor = 'textarea-description';
     labelDescription.textContent = 'Event description :';
     textareaDescription.id = 'textarea-description';
     textareaDescription.placeholder = 'Add a description';
-    textareaDescription.name = 'Description of the event';
+    textareaDescription.name = 'description';
     textareaDescription.cols = '35';
     textareaDescription.rows = '5';
 
@@ -68,6 +68,7 @@ const addEventModal = (inputValue, datas) => {
     inputEventAuthor.id = 'input-event-author';
     inputEventAuthor.type = 'text';
     inputEventAuthor.placeholder = 'Add author';
+    inputEventAuthor.name = 'author';
 
     dateFormDiv.classList.add('date-form-div');
     startDiv.classList.add('start-date');
@@ -76,19 +77,13 @@ const addEventModal = (inputValue, datas) => {
     labelDateStart.textContent = 'Date :';
     inputDateStart.classList.add('input-date');
     inputDateStart.type = 'date';
-    inputDateStart.name = 'start date of the event';
+    inputDateStart.name = 'date';
 
     addDate.type = 'button';
     addDate.classList.add('add-delete-date','add-date');
     addDate.value ='Add date ➕';
 
     gestionDate.classList.add('gestion-date');
-
-    labelDateEnd.htmlFor = 'input-date-end';
-    labelDateEnd.textContent = 'End :';
-    inputDateEnd.id = 'input-date-end';
-    inputDateEnd.type = 'date';
-    inputDateEnd.name = 'End of the event';
 
     inputSubmit.id = 'input-submit';
     inputSubmit.type = 'submit';
@@ -203,12 +198,20 @@ const addEventModal = (inputValue, datas) => {
         }
     });
 
-    //
+    // envoyer le formulaire
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        const dates = document.querySelectorAll('.input-date')
+        const formDates = []
+        dates.forEach(element => { 
+            formDates.push(element.value) ;
+            console.log(formDates)
+            
+        });
+
+        sendForm(form, formDates) ;
         closeModalFNC(modalSection) ;
-        sendForm()
     })
 };
 
@@ -245,6 +248,7 @@ function deleteEventModal(data) {
             closeModalFNC(container);
         }
     })
+
 }
 
 export default addEventModal;
