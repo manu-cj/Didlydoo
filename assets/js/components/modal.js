@@ -1,3 +1,4 @@
+import { sendForm } from "../api/addEvent.js";
 import { deleteDataById } from "../api/deleteDataById.js";
 import updateDatas from "../api/updateDatasById.js";
 import { createDiv, closeModalFNC, blurEverything, sanityzeForm, compareDates, stripTag } from "./functions.js";
@@ -205,7 +206,7 @@ const addEventModal = (inputValue, datas) => {
                 
             });
     
-            sendForm(form, stripTag(formDates)) ;
+            sendForm(form, formDates) ;
             closeModalFNC(modalSection) ;
     }
     

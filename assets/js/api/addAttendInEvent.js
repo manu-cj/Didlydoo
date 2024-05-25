@@ -1,19 +1,10 @@
 import { stripTag } from "./../components/functions.js";
 
 
-export function sendForm(form, dates) {
-    let url = 'http://localhost:3000/api/events/'
-    const allDates = document.querySelectorAll('.input-date')
+export function AddAttendInEvent(id, data) {
+    let url = `http://localhost:3000/api/events/${id}/attend`
+    console.log(data);
     
-    const formData = new FormData(form);
-    const payload = {
-        author: stripTag(formData.get('author')),
-        name: stripTag(formData.get('name')),
-        description : stripTag(formData.get('description')),
-        dates: dates
-    };
-
-    console.log("Payload:", payload) ;
 
         fetch(url, {
             method: 'POST',
@@ -22,7 +13,7 @@ export function sendForm(form, dates) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(data)
            
         })
         .then(res => {
@@ -34,6 +25,3 @@ export function sendForm(form, dates) {
         .then(data => console.log("response:", data))
         .catch(err => console.error('error :', err));
     };
-
-
-    

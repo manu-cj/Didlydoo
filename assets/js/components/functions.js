@@ -105,7 +105,7 @@ export function stripTag(input) {
 
   return sanitizedInputWithoutEvents;
 }
-    
+
     
     
 
