@@ -6,7 +6,6 @@
     "description": "On va voir Kill Bill",
     "dates": [
       "2024-05-26",
-      "2024-05-26",
       "2024-05-27"
     ],
     "created_at": "2024-05-25T10:54:07.965Z",
@@ -21,10 +20,6 @@
             "available": false
           },
           {
-            "date": "2024-05-26",
-            "available": false
-          },
-          {
             "date": "2024-05-27",
             "available": false
           }
@@ -33,10 +28,6 @@
       {
         "name": "Lyne",
         "dates": [
-          {
-            "date": "2024-05-26",
-            "available": false
-          },
           {
             "date": "2024-05-26",
             "available": false
