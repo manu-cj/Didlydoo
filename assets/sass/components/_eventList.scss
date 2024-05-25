@@ -66,6 +66,12 @@ main {
                 }
     
             }
+
+            h2 {
+                color:var(--colorText);
+                font-family: Goldman;
+            }
+
             :where(.seeMore, .seeLess) {
                 cursor: pointer;
                 margin: 10px;
@@ -81,18 +87,26 @@ main {
                 }
             }
             .otherDataDiv {
-                padding-left: 50px;
+                padding:20px;
                 width: 100%;
                 display: none;
+
+                blockquote {
+                    font-weight: 500;
+                }
+
+                .eventAuthor {
+                    margin-top: 15px;
+                }
+
+                .eventDateDiv {
+                    margin-top: 15px;
+                }
             }
         }
 
         article:hover {
             border:solid 2px var(--color1);
-        }
-
-        h2 {
-            color:var(--colorText);
         }
     }
 }

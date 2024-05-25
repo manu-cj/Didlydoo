@@ -17,13 +17,19 @@ export function sleep(ms) {
 // you can use null value to avoid content and class
 // ex: const div = createDiv('p',parent,null,null)
 
-export function createDiv(type,parent,content,className) {
+export function createDiv(type,parent,content,className,setValue,setSrc) {
     const newDiv=document.createElement(type);
     if (content!=null) {
       newDiv.innerHTML=content;
     }
     if (className!=null) {
       newDiv.classList.add(className);
+    }
+    if (setValue!=null) {
+      newDiv.value=setValue
+    }
+    if (setSrc!=null) {
+      newDiv.value=setSrc
     }
     parent.appendChild(newDiv);
     return newDiv;
@@ -44,7 +50,7 @@ export function closeModalFNC(container) {
 
 
 // Sécurité des forms
-export function sanityzeForm(namedata, description, author) {
+export function sanityzeForm(namedata, description, author, sumitBtn) {
 
   namedata.addEventListener('keyup', () => {
     console.log(namedata.value.length);
@@ -53,20 +59,21 @@ export function sanityzeForm(namedata, description, author) {
       namedata.style.outlineColor = 'red';
     } else {
       namedata.setCustomValidity('');
-      namedata.style.outlineColor = 'black';
+      namedata.style.outlineColor = 'green';
     }
+    namedata.reportValidity();
     
   });
   description.addEventListener('keyup', () => {
     if (description.value.length < 3 || description.value.length > 255) {
       description.setCustomValidity('The description must contain at least 3 and 256 characters');
-      description.setCustomValidity('The name must contain at least 3 and 40 characters');
       description.style.outlineColor = 'red';
     }
     else{
       description.setCustomValidity('');
-      description.style.outlineColor = 'black';
+      description.style.outlineColor = 'green';
     }
+    description.reportValidity();
   });
 
  author.addEventListener('keyup', () => {
@@ -76,19 +83,66 @@ export function sanityzeForm(namedata, description, author) {
     }
     else{
      author.setCustomValidity('');
-     author.style.outlineColor = 'black';
+     author.style.outlineColor = 'green';
     }
+    author.reportValidity();
   });
+
+  if (namedata.value === "") {
+    namedata.setCustomValidity('The name must contain at least 3 and 40 characters');
+    namedata.style.outlineColor = 'red';
+  }else {
+    namedata.setCustomValidity('');
+    namedata.style.outlineColor = 'green';
+  }
+
+  if (description.value === "") {
+    description.setCustomValidity('The description must contain at least 3 and 256 characters');
+    description.style.outlineColor = 'red';
+  }
+  else{
+    description.setCustomValidity('');
+    description.style.outlineColor = 'green';
+  }
+
+  if (author.value === "") {
+    author.setCustomValidity('The author must contain at least 3 and 40 characters');
+    author.style.outlineColor = 'red';
+   }
+   else{
+    author.setCustomValidity('');
+    author.style.outlineColor = 'green';
+   }
+  
+   sumitBtn.addEventListener('click', () => {
+    namedata.reportValidity();
+    description.reportValidity();
+    author.reportValidity();
+   })
 
   
 }
 
-export function compareDates(dates) {
+export function compareDates(dateInputs) {
+  // Obtenez la date actuelle au format 'YYYY-MM-DD'
   const currentDate = new Date().toISOString().split('T')[0];
-  dates.forEach(date => {
-    date.min  = currentDate;
+  // Définissez la date minimale pour chaque champ de date
+  dateInputs.forEach(dateInput => {
+    dateInput.min = currentDate;
   });
+
+
+
+  // Fonction pour vérifier les doublons
+ 
+
+  // Ajoutez un écouteur d'événement "change" à chaque champ de date
+  
 }
+
+
+
+
 
 export function stripTag(input) {
   // Remplace les balises ouvertes et fermées par du texte vide
@@ -99,7 +153,7 @@ export function stripTag(input) {
 
   return sanitizedInputWithoutEvents;
 }
-    
+
     
     
 

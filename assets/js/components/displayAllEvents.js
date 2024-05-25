@@ -1,6 +1,7 @@
 import addEventModal, { deleteEventModal } from "./modal.js";
 import { table, updateAvailable } from "./table.js";
-import { createDiv } from "./functions.js"
+import { createDiv, stripTag } from "./functions.js"
+import { AddAttendInEvent } from "../api/addAttendInEvent.js";
 
 
 const displayAllEvents = (datas) => {
@@ -54,16 +55,45 @@ const displayAllEvents = (datas) => {
         participantInput.placeholder = 'Enter your name'
         const participantAdd = createDiv('div',participantContainer,null,'participantAdd')
         createDiv('p',participantAdd,'+')
-        updateAvailable(data.id, data.dates)
+        updateAvailable(data.id, data.dates);
+
         participantAdd.addEventListener('click', () => {
             const nameInput = participantInput.value
-            console.log(nameInput)
+            
+            let datas = {
+                "name": stripTag(nameInput),
+                "dates": [
+
+                ]
+            }
+            data.dates.forEach(date => {
+                datas.dates.push({
+                    "date": stripTag(date.date),
+                    "available": false
+                })
+            });
+            AddAttendInEvent(data.id, datas)
+           
         })
 
         participantInput.addEventListener('keyup', (event) => {
             if(event.key=='Enter') {
                 const nameInput = participantInput.value
-                console.log(nameInput)
+                
+                
+            let datas = {
+                "name": stripTag(nameInput),
+                "dates": [
+
+                ]
+            }
+            data.dates.forEach(date => {
+                datas.dates.push({
+                    "date": stripTag(date.date),
+                    "available": false
+                })
+            });
+            AddAttendInEvent(data.id, datas)
             }
         })
     });
@@ -89,7 +119,7 @@ const displayAllEvents = (datas) => {
                 otherDataDivs[i].style.display = 'none';
             }
         });
-
+        
         const data = datas[i];
         
         updateBtn[i].addEventListener('click', () => {

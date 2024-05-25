@@ -24,6 +24,7 @@ header {
     }
 
     #darkmodeButton {
+        opacity:0;
         position:absolute;
         top:10%;
         right:0;
@@ -32,7 +33,7 @@ header {
             right:3%;
         }
 
-        height:17%;
+        height:20px;
 
         transition:0.3s;
 

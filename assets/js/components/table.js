@@ -49,7 +49,6 @@ export function table(dates, parent, id) {
                checkbox.setAttribute('checked','true')
                checkbox.classList.add('checked')
                data.available = true
-               //updateAvailable(dates, checkbox,data, j)
                checkboxEvent(dates,checkbox,data, j)
             } else {
                 //unvailable
@@ -57,7 +56,6 @@ export function table(dates, parent, id) {
                 const checkboxContainer = createDiv('div',td,null,'checkboxContainer')
                 const checkbox = createDiv('div',checkboxContainer,null,'checkbox')
                 checkbox.setAttribute('checked','false')
-                //updateAvailable(dates, checkbox,data, j)
                 checkboxEvent(dates, checkbox,data, j)
             }
         } 
@@ -67,16 +65,11 @@ export function table(dates, parent, id) {
 
  export function updateAvailable(id, dates) {
     const trChecked = document.querySelectorAll('.tr-checked');
-    console.log(dates);
-    console.log(id);
 
-    console.log(trChecked);
     for (let i = 0; i < trChecked.length; i++) {
         const tr = trChecked[i];
-        console.log(tr);
         let btnAvailable = document.querySelectorAll('.change-available');
         btnAvailable[i].addEventListener('click', () => {
-            console.log('kwik');
             const allChecked = tr.querySelectorAll('.checkbox');
             let nameData = tr.querySelector('.nameTable');
             let datas = {
@@ -85,7 +78,6 @@ export function table(dates, parent, id) {
             };
             for (let j = 0; j < allChecked.length; j++) {
                 const checkbox = allChecked[j];
-                console.log(checkbox.getAttribute('checked'));
                 let bool = false;
                 if (checkbox.getAttribute('checked') === 'true') {
                     bool = true;
@@ -94,7 +86,6 @@ export function table(dates, parent, id) {
                 
             }
             updateAttend(id,datas);
-            console.log(datas);
         })
         
     }
@@ -103,10 +94,8 @@ export function table(dates, parent, id) {
 function checkboxEvent( dates,checkbox,data, index) {
     checkbox.addEventListener('click', () => {
         const checked = checkbox.getAttribute('checked')
-        console.log(checked);
         data.available = checked == 'true' ? false : true
         checkbox.setAttribute('checked', data.available.toString())
-        console.log(index);
         if(checked=='true') {
             checkbox.classList.remove('checked')
         } else {
@@ -132,19 +121,13 @@ function checkboxEvent( dates,checkbox,data, index) {
         }
         let arrayByName = [];
         arrayDates.forEach(dataByName => {
-            console.log(dataByName);
             if (dataByName.name === data.name) {
                 arrayByName.push(dataByName.dates);
             }
         })
         let flatArray = arrayByName.flat()
         flatArray[index].available = data.available;
-        console.log( flatArray[index]);
-        console.log(arrayByName);
         //updateAttend(data.id,data.name, flatArray)
-        console.log(data.id)
-        console.log(data.name)
-        console.log(data.date)
-        console.log(data.available)
+       
     })
 }

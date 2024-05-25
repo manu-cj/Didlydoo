@@ -1,3 +1,33 @@
+.fromLeft {
+    opacity:0;
+    animation:fromLeft 0.5s 0.5s linear forwards;
+}
+@keyframes fromLeft {
+    0%{
+        opacity:0;
+        transform:translateX(-1000px);
+    }
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.fromRight {
+    opacity:0;
+    animation:fromRight 0.5s 0.5s linear forwards;
+}
+@keyframes fromRight {
+    0%{
+        opacity:0;
+        transform:translateX(1000px);
+    }
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
 .introFadeIn {
     animation:introFadeIn 0.5s linear forwards;
 }
@@ -39,36 +69,34 @@
 }
 
 .introDarkmode {
-    transform:translateX(1000px);
-    animation:introDarkmode 1s  ease-out forwards;
+    opacity:0;
+    animation:introDarkmode 1s 2s ease-out forwards;
 }
 @keyframes introDarkmode {
     0%{
         transform:translateX(1000px);
         opacity:0;
-        filter:blur(10px);
     }
     100%{
         transform:translateX(0);
         opacity:1;
-        filter:blur(0);
     }
 }
 
 .introAddEvent {
     opacity:0;
-    animation:introAddEvent 1s ease-out forwards;
+    transform:translateX(-1000px);
+    animation:introAddEvent 1s 1.5s ease-out forwards;
 }
 @keyframes introAddEvent {
     0%{
         transform:translateX(-1000px);
         opacity:0;
-        filter:blur(10px);
     }
+
     100%{
         transform:translateX(0);
         opacity:1;
-        filter:blur(0);
     }
 }
 
@@ -114,7 +142,7 @@
         transform:translateY(0);
     }
     50%{
-        transform: translateY(-20px);
+        transform: translateY(-15px);
     }
     100%{
         transform:translateY(0);
