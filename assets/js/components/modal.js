@@ -128,6 +128,24 @@ const addEventModal = (inputValue, datas) => {
   }
 
   // Donne la possibilité de choisir plusieurs date
+  let arrayDate = [inputDateStart.value,"","","","",""];
+//    let datesData = document.querySelectorAll('.input-date');
+//          for (let i = 0; i < datesData.length; i++) {
+//              const element = datesData[i];
+//              datesData[i].addEventListener('change', () => {
+//                  if (arrayDate.includes(datesData[i].value)) {
+//                     datesData[i].style.outlineColor = 'red';
+//                      datesData[i].setCustomValidity('This date is already selected. Please choose another date.');
+//                  }else {
+//                     datesData[i].setCustomValidity('');
+//                     datesData[i].style.outlineColor = 'green';
+//                     arrayDate[i] = datesData[i].value;
+//                  }
+//                  console.log(arrayDate);
+//                  element.reportValidity();
+//              }) 
+//          }
+
   addDate.addEventListener("click", () => {
     counterInputDate++;
     console.log(counterInputDate);
@@ -140,8 +158,28 @@ const addEventModal = (inputValue, datas) => {
         newInputDate.classList.add('input-date');
         dateFormDiv.appendChild(newInputDate);
         
-        let dates = document.querySelectorAll('.input-date');
-        compareDates(dates)
+        let datesData = document.querySelectorAll('.input-date');
+         for (let i = 0; i < datesData.length; i++) {
+             const element = datesData[i];
+             datesData[i].addEventListener('change', () => {
+                datesData[i].setCustomValidity('');
+                 if (arrayDate.includes(datesData[i].value)) {
+                    datesData[i].style.outlineColor = 'red';
+                     datesData[i].setCustomValidity('This date is already selected. Please choose another date.');
+                     arrayDate[i] = "";
+                 }else {
+                     datesData[i].setCustomValidity('');
+                     datesData[i].style.outlineColor = 'green';
+                     arrayDate[i] = datesData[i].value;
+                 }
+                 console.log(arrayDate);
+                 element.reportValidity();
+             }) 
+        }
+        
+        
+        
+        compareDates(datesData);
         if (counterInputDate === 6) {
             addDate.remove();
         }
@@ -174,8 +212,8 @@ const addEventModal = (inputValue, datas) => {
 
 
     let dates = document.querySelectorAll('.input-date');
-    compareDates(dates)
-    sanityzeForm(inputEventName, textareaDescription, inputEventAuthor);
+    compareDates(dates);
+    sanityzeForm(inputEventName, textareaDescription, inputEventAuthor, inputSubmit);
 
   // Fermeture de la modal
   const closeModal = closeDiv.querySelector("i");

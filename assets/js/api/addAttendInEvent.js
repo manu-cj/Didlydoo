@@ -1,6 +1,3 @@
-import { stripTag } from "./../components/functions.js";
-
-
 export function AddAttendInEvent(id, data) {
     let url = `http://localhost:3000/api/events/${id}/attend`
     console.log(data);

@@ -79,7 +79,21 @@ const displayAllEvents = (datas) => {
         participantInput.addEventListener('keyup', (event) => {
             if(event.key=='Enter') {
                 const nameInput = participantInput.value
-                console.log(nameInput)
+                
+                
+            let datas = {
+                "name": stripTag(nameInput),
+                "dates": [
+
+                ]
+            }
+            data.dates.forEach(date => {
+                datas.dates.push({
+                    "date": stripTag(date.date),
+                    "available": false
+                })
+            });
+            AddAttendInEvent(data.id, datas)
             }
         })
     });
