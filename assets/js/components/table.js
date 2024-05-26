@@ -85,6 +85,8 @@ export function table(dates, parent, id) {
                 datas.dates.push({"date": dates[j].date,"available": bool});
                 
             }
+            console.log(id);
+            console.log(datas);
             updateAttend(id,datas);
         })
         

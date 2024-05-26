@@ -2,6 +2,7 @@ import addEventModal, { deleteEventModal } from "./modal.js";
 import { table, updateAvailable } from "./table.js";
 import { createDiv, stripTag } from "./functions.js"
 import { AddAttendInEvent } from "../api/addAttendInEvent.js";
+import updateAttend from "../api/updateAttend.js";
 
 
 const displayAllEvents = (datas) => {
@@ -55,7 +56,7 @@ const displayAllEvents = (datas) => {
         participantInput.placeholder = 'Enter your name'
         const participantAdd = createDiv('div',participantContainer,null,'participantAdd')
         createDiv('p',participantAdd,'+')
-        updateAvailable(data.id, data.dates);
+        
 
         participantAdd.addEventListener('click', () => {
             const nameInput = participantInput.value
@@ -98,6 +99,9 @@ const displayAllEvents = (datas) => {
         })
     });
 
+
+    
+
     const updateBtn = document.querySelectorAll('.fa-pencil-alt'); 
     const deleteBtn = document.querySelectorAll('.fa-times');
 
@@ -108,6 +112,7 @@ const displayAllEvents = (datas) => {
         seeMoreElements[i].addEventListener('click', () => {
             const isSeeMore = seeMoreElements[i].classList.contains('seeMore');
             if (isSeeMore) {
+                console.log(datas[i]);
                 seeMoreElements[i].innerHTML = `see Less <i class="fas fa-caret-up"></i>`;
                 seeMoreElements[i].classList.remove('seeMore');
                 seeMoreElements[i].classList.add('seeLess');
@@ -122,6 +127,9 @@ const displayAllEvents = (datas) => {
         
         const data = datas[i];
         
+
+        
+        // updateAvailable(datas[i].id, datas[i].dates);
         updateBtn[i].addEventListener('click', () => {
             addEventModal('update', data);
         })
@@ -129,6 +137,57 @@ const displayAllEvents = (datas) => {
         deleteBtn[i].addEventListener('click', () => {
             deleteEventModal(data)
         })
+    }
+
+    const trChecked = document.querySelectorAll('.tr-checked');
+
+    for (let i = 0; i < trChecked.length; i++) {
+        
+        const tr = trChecked[i];
+        const tBody = tr.parentNode
+        const eventDateDiv = tBody.parentNode
+        const otherDataDiv = eventDateDiv.parentNode;
+        const articles = otherDataDiv.parentNode;
+        const eventName = articles.children[1];
+
+        let btnAvailable = document.querySelectorAll('.change-available');
+        btnAvailable[i].addEventListener('click', () => {
+            let id = "";
+            let datesStored = [];
+        datas.forEach(data => {
+             if (data.name === eventName.textContent) {
+                id = data.id;
+                console.log(id);
+                data.dates.forEach(dateData => {
+                    console.log(dateData.date);
+                datesStored.push(dateData.date)
+                });
+                
+             }
+         });
+         console.log(datesStored);
+            console.log(eventName);
+            const allChecked = tr.querySelectorAll('.checkbox');
+            let nameData = tr.querySelector('.nameTable');
+            console.log(nameData.textContent);
+            let datasAdd = {
+                "name": nameData.textContent,
+                "dates" : []
+            };
+            for (let j = 0; j < allChecked.length; j++) {
+                const checkbox = allChecked[j];
+                let bool = false;
+                if (checkbox.getAttribute('checked') === 'true') {
+                    bool = true;
+                }
+                datasAdd.dates.push({"date": datesStored[j],"available": bool});
+                
+            }
+            console.log(id);
+            console.log(datasAdd.dates);
+             updateAttend(id,datasAdd);
+        })
+        
     }
     
 }

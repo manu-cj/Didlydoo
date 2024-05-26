@@ -1,3 +1,5 @@
+import { toastNotifications } from "../components/toast_notifications.js";
+
 export function AddAttendInEvent(id, data) {
     let url = `http://localhost:3000/api/events/${id}/attend`
     console.log(data);
@@ -17,8 +19,9 @@ export function AddAttendInEvent(id, data) {
             if (!res.ok) {
                 throw new Error(`HTTP error! Status: ${res.status}`);
             }
+            
             return res.json();
         })
-        .then(data => console.log("response:", data))
+        .then(data => console.log("response:", data), toastNotifications("add-event"))
         .catch(err => console.error('error :', err));
     };

@@ -1,4 +1,5 @@
 import { stripTag } from "./../components/functions.js";
+import { toastNotifications } from "../components/toast_notifications.js";
 
 
 export function sendForm(form, dates) {
@@ -31,7 +32,7 @@ export function sendForm(form, dates) {
             }
             return res.json();
         })
-        .then(data => console.log("response:", data))
+        .then(data => console.log("response:", data), toastNotifications("add-event"))
         .catch(err => console.error('error :', err));
     };
 
