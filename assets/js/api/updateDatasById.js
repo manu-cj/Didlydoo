@@ -1,3 +1,5 @@
+import { toastNotifications } from "../components/toast_notifications.js";
+
 const updateDatas = (id, nameData, descriptionData, authorData) => {
     const url = `http://localhost:3000/api/events/${id}`;
     let datas = {
@@ -24,6 +26,7 @@ const updateDatas = (id, nameData, descriptionData, authorData) => {
         }
     })
     .then(datas => {
+        toastNotifications("update");
         console.log(datas);
     })
     .catch(error => {

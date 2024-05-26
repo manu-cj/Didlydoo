@@ -1,6 +1,19 @@
+import { toastNotifications } from "../components/toast_notifications.js";
+
+
 const updateAttend = (id, data) => {
     const url = `http://localhost:3000/api/events/${id}/attend`;
-  
+  console.log(id);
+  console.log(data.name);
+  console.log(data.dates[0].date);
+  let datas = {
+    "name": data.name,
+    "dates": []
+  }
+  data.dates.forEach(dateData => {
+    datas.dates.push({"date": dateData.date, "available": dateData.available});
+  });
+    
   
     fetch(url, {
       method: "PATCH",
@@ -18,8 +31,9 @@ const updateAttend = (id, data) => {
           throw new Error("Network response was not ok: " + response.statusText);
         }
       })
-      .then((datas) => {
-        console.log(datas);
+      .then((dataas) => {
+        toastNotifications("add-available");
+        console.log(dataas);
       })
       .catch((error) => {
         console.error(

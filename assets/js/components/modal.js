@@ -116,6 +116,7 @@ const addEventModal = (inputValue, datas) => {
   deleteDate.type = "button";
   deleteDate.classList.add("add-delete-date", "delete-date");
   deleteDate.value = "➖ Delete date";
+
   // Affichage des données lors de l'update
   if (inputValue === "update") {
     form.method = "patch";
@@ -129,22 +130,24 @@ const addEventModal = (inputValue, datas) => {
 
   // Donne la possibilité de choisir plusieurs date
   let arrayDate = [inputDateStart.value,"","","","",""];
-//    let datesData = document.querySelectorAll('.input-date');
-//          for (let i = 0; i < datesData.length; i++) {
-//              const element = datesData[i];
-//              datesData[i].addEventListener('change', () => {
-//                  if (arrayDate.includes(datesData[i].value)) {
-//                     datesData[i].style.outlineColor = 'red';
-//                      datesData[i].setCustomValidity('This date is already selected. Please choose another date.');
-//                  }else {
-//                     datesData[i].setCustomValidity('');
-//                     datesData[i].style.outlineColor = 'green';
-//                     arrayDate[i] = datesData[i].value;
-//                  }
-//                  console.log(arrayDate);
-//                  element.reportValidity();
-//              }) 
-//          }
+    let datesData = document.querySelectorAll('.input-date');
+          for (let i = 0; i < datesData.length; i++) {
+              const element = datesData[i];
+              datesData[i].addEventListener('change', () => {
+                  if (arrayDate.includes(datesData[i].value)) {
+                     datesData[i].style.outlineColor = 'red';
+                      datesData[i].setCustomValidity('This date is already selected. Please choose another date.');
+                  }else {
+                     datesData[i].setCustomValidity('');
+                     datesData[i].style.outlineColor = 'green';
+                     arrayDate[i] = datesData[i].value;
+                  }
+                  console.log(arrayDate);
+                  element.reportValidity();
+              }) 
+          }
+
+   
 
   addDate.addEventListener("click", () => {
     counterInputDate++;
@@ -180,8 +183,9 @@ const addEventModal = (inputValue, datas) => {
         
         
         compareDates(datesData);
-        if (counterInputDate === 6) {
-            addDate.remove();
+        if (counterInputDate > 5) {
+            let add = gestionDate.querySelector('.add-date');
+            add.remove();
         }
         
     })
@@ -223,7 +227,7 @@ const addEventModal = (inputValue, datas) => {
   });
 
   modalSection.addEventListener("click", (e) => {
-    if (!modalDiv.contains(e.target)) {
+    if (e.target === modalSection) {
       closeModalFNC(modalSection);
     }
   });

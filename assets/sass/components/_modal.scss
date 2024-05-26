@@ -10,6 +10,7 @@
     .modal-div {
         position: relative;
         width: 400px;
+        
         @include box(400px,auto);
         border-radius: 15px;
         color:var(--colorText);

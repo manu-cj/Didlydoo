@@ -1,3 +1,5 @@
+import { toastNotifications } from "../components/toast_notifications.js";
+
 export async function deleteDataById(data) {
     const url = `http://localhost:3000/api/events/${data.id}`;
 
@@ -11,6 +13,7 @@ export async function deleteDataById(data) {
         });
 
         if (response.ok) {
+            toastNotifications("delete");
             const result = await response.json();
         } else {
             throw new Error('Network response was not ok: ' + response.statusText);
