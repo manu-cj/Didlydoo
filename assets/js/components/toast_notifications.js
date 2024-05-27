@@ -55,12 +55,12 @@ function notif(etat, text, parent) {
         } else {
             console.log('Toast key is not present or has a different value.');
         }
-    },4000)
+    },2000)
     setTimeout(() => {
         localStorage.setItem('toast', "null");
         parent.style.animationName = "delete-toast";
         parent.classList.remove(etat);
         parent.innerHTML = "";
 
-    },10000)
+    },8000)
 }

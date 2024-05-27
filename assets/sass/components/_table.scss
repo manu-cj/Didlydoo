@@ -1,7 +1,13 @@
 table {
     width:100%;
     border: 1px solid var(--color1);
-}
+
+    
+    }
+
+ 
+        
+    
 
 
 
@@ -34,5 +40,18 @@ td {
     .participantAdd:hover {
         color:var(--colorText);
         background-color: var(--color1);
+    }
+}
+
+
+.change-available {
+    margin-top: 5px;
+    border: none;
+    background-color: var(--colorText);
+    color: var(--colorBackground);
+    border-radius: 3px;
+    margin-left: 5px;
+    &:hover {
+        cursor: pointer;
     }
 }

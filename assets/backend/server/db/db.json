@@ -3,14 +3,14 @@
     "id": "08fe5b6439fa",
     "name": "Sortie cinema : Kill Bill",
     "author": "Manu",
-    "description": "On va voir Kill Bill",
+    "description": "On va voir Kill Bill, venez !",
     "dates": [
       "2024-06-01",
       "2024-06-02"
     ],
     "created_at": "2024-05-26T11:56:00.455Z",
-    "num_modification": 0,
-    "last_modification": "2024-05-26T11:56:00.455Z",
+    "num_modification": 1,
+    "last_modification": "2024-05-27T11:41:15.599Z",
     "attendees": [
       {
         "name": "Manu",
@@ -21,7 +21,7 @@
           },
           {
             "date": "2024-06-02",
-            "available": false
+            "available": true
           }
         ]
       },
@@ -30,7 +30,7 @@
         "dates": [
           {
             "date": "2024-06-01",
-            "available": false
+            "available": true
           },
           {
             "date": "2024-06-02",
@@ -43,7 +43,7 @@
         "dates": [
           {
             "date": "2024-06-01",
-            "available": false
+            "available": true
           },
           {
             "date": "2024-06-02",
@@ -81,7 +81,7 @@
           },
           {
             "date": "2022-03-21",
-            "available": false
+            "available": true
           },
           {
             "date": "2022-03-22",
@@ -98,7 +98,7 @@
           },
           {
             "date": "2022-03-18",
-            "available": false
+            "available": true
           },
           {
             "date": "2022-03-21",
@@ -115,7 +115,7 @@
         "dates": [
           {
             "date": "2022-03-17",
-            "available": false
+            "available": true
           },
           {
             "date": "2022-03-18",
@@ -243,8 +243,24 @@
             "available": false
           },
           {
+            "date": "2022-03-18",
+            "available": false
+          },
+          {
+            "date": "2022-03-19",
+            "available": true
+          },
+          {
             "date": "2022-03-21",
             "available": true
+          },
+          {
+            "date": "2022-03-22",
+            "available": false
+          },
+          {
+            "date": "2022-03-28",
+            "available": false
           }
         ]
       }
