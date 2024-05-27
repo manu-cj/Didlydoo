@@ -1000,6 +1000,7 @@ main #eventsList article :where(.seeMore, .seeLess):hover {
 main #eventsList article .otherDataDiv {
   padding: 5px;
   width: 100%;
+  display: none;
 }
 main #eventsList article .otherDataDiv .eventDateDiv {
   margin-top: 15px;

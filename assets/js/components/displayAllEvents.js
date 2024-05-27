@@ -147,8 +147,10 @@ const displayAllEvents = (datas) => {
         const tBody = tr.parentNode
         const eventDateDiv = tBody.parentNode
         const otherDataDiv = eventDateDiv.parentNode;
-        const articles = otherDataDiv.parentNode;
-        const eventName = articles.children[1];
+        const table = otherDataDiv.parentNode;
+        const article = table.parentNode;
+        const eventName = article.children[1]
+        console.log(eventName);
 
         let btnAvailable = document.querySelectorAll('.change-available');
         btnAvailable[i].addEventListener('click', () => {
