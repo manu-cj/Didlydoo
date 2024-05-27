@@ -131,21 +131,21 @@ const addEventModal = (inputValue, datas) => {
   // Donne la possibilité de choisir plusieurs date
   let arrayDate = [inputDateStart.value,"","","","",""];
     let datesData = document.querySelectorAll('.input-date');
-          for (let i = 0; i < datesData.length; i++) {
-              const element = datesData[i];
-              datesData[i].addEventListener('change', () => {
-                  if (arrayDate.includes(datesData[i].value)) {
-                     datesData[i].style.outlineColor = 'red';
-                      datesData[i].setCustomValidity('This date is already selected. Please choose another date.');
-                  }else {
-                     datesData[i].setCustomValidity('');
-                     datesData[i].style.outlineColor = 'green';
-                     arrayDate[i] = datesData[i].value;
-                  }
-                  console.log(arrayDate);
-                  element.reportValidity();
-              }) 
-          }
+        //   for (let i = 0; i < datesData.length; i++) {
+        //       const element = datesData[i];
+        //       datesData[i].addEventListener('change', () => {
+        //           if (arrayDate.includes(datesData[i].value)) {
+        //              datesData[i].style.outlineColor = 'red';
+        //               datesData[i].setCustomValidity('This date is already selected. Please choose another date.');
+        //           }else {
+        //              datesData[i].setCustomValidity('');
+        //              datesData[i].style.outlineColor = 'green';
+        //              arrayDate[i] = datesData[i].value;
+        //           }
+        //           console.log(arrayDate);
+        //           element.reportValidity();
+        //       }) 
+        //   }
 
    
 
