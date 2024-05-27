@@ -1043,11 +1043,15 @@ main #eventsList article:hover {
 :where(.add-available, .update, .delete, .add-event) {
   padding: 20px;
   background: greenyellow;
+  color: black;
   margin: 15px 0;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   border-radius: 5px;
+}
+:where(.add-available, .update, .delete, .add-event) i {
+  color: green;
 }
 
 body .deleteContainer {

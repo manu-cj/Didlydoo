@@ -62,5 +62,5 @@ function notif(etat, text, parent) {
         parent.classList.remove(etat);
         parent.innerHTML = "";
 
-    },10000)
+    },8000)
 }
