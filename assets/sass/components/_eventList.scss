@@ -1,6 +1,7 @@
 main {
 
     #eventsList {
+        padding-top: 80px;
         position: relative;
         width:90%;
         margin:30px auto auto auto;
@@ -12,8 +13,12 @@ main {
         }
 
         #addEventButton {
+            z-index: 8;
             align-self: start;
-            margin:0 0 15px 0;
+            position: fixed;
+            top: 95px;
+            left: 50px;
+            margin:0 0px 15px 0px;
 
             @include responsive(900px) {
                 margin:0 0 15px 5%;
@@ -87,9 +92,11 @@ main {
                 }
             }
             .otherDataDiv {
-                padding:20px;
+                padding:5px;
                 width: 100%;
                 display: none;
+                overflow-x: scroll;
+                
 
                 blockquote {
                     font-weight: 500;
@@ -102,6 +109,20 @@ main {
                 .eventDateDiv {
                     margin-top: 15px;
                 }
+            }
+
+            .otherDataDiv::-webkit-scrollbar {
+                width: 20px;
+                background-color: var(--colorBackgroundt);
+            }
+            .otherDataDiv::-webkit-scrollbar-track {
+                background-color: var(--colorBackgroundt);
+            
+            }
+            .otherDataDiv::-webkit-scrollbar-thumb {
+                background-color: var(--colorText);
+                border-radius: 20px;
+                border:solid 7px var(--colorBackground);
             }
         }
 

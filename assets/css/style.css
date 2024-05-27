@@ -918,6 +918,7 @@ header::before {
 }
 
 main #eventsList {
+  padding-top: 80px;
   position: relative;
   width: 90%;
   margin: 30px auto auto auto;
@@ -929,8 +930,12 @@ main #eventsList {
   }
 }
 main #eventsList #addEventButton {
+  z-index: 8;
   align-self: start;
-  margin: 0 0 15px 0;
+  position: fixed;
+  top: 95px;
+  left: 50px;
+  margin: 0 0px 15px 0px;
   font-weight: 800;
   padding: 1px 8px 1px 8px;
   border: solid 2px var(--colorText);
@@ -993,9 +998,10 @@ main #eventsList article :where(.seeMore, .seeLess):hover {
   transform: scale(110%);
 }
 main #eventsList article .otherDataDiv {
-  padding: 20px;
+  padding: 5px;
   width: 100%;
   display: none;
+  overflow-x: scroll;
 }
 main #eventsList article .otherDataDiv blockquote {
   font-weight: 500;
@@ -1005,6 +1011,18 @@ main #eventsList article .otherDataDiv .eventAuthor {
 }
 main #eventsList article .otherDataDiv .eventDateDiv {
   margin-top: 15px;
+}
+main #eventsList article .otherDataDiv::-webkit-scrollbar {
+  width: 20px;
+  background-color: var(--colorBackgroundt);
+}
+main #eventsList article .otherDataDiv::-webkit-scrollbar-track {
+  background-color: var(--colorBackgroundt);
+}
+main #eventsList article .otherDataDiv::-webkit-scrollbar-thumb {
+  background-color: var(--colorText);
+  border-radius: 20px;
+  border: solid 7px var(--colorBackground);
 }
 main #eventsList article:hover {
   border: solid 2px var(--color1);
@@ -1117,6 +1135,18 @@ td .checkAvailability {
 .participantContainer .participantAdd:hover {
   color: var(--colorText);
   background-color: var(--color1);
+}
+
+.change-available {
+  margin-top: 5px;
+  border: none;
+  background-color: var(--colorText);
+  color: var(--colorBackground);
+  border-radius: 3px;
+  margin-left: 5px;
+}
+.change-available:hover {
+  cursor: pointer;
 }
 
 .checkboxContainer {

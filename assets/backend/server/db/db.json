@@ -21,7 +21,7 @@
           },
           {
             "date": "2024-06-02",
-            "available": false
+            "available": true
           }
         ]
       },
@@ -30,7 +30,7 @@
         "dates": [
           {
             "date": "2024-06-01",
-            "available": false
+            "available": true
           },
           {
             "date": "2024-06-02",
@@ -43,7 +43,7 @@
         "dates": [
           {
             "date": "2024-06-01",
-            "available": false
+            "available": true
           },
           {
             "date": "2024-06-02",
@@ -81,7 +81,7 @@
           },
           {
             "date": "2022-03-21",
-            "available": false
+            "available": true
           },
           {
             "date": "2022-03-22",
@@ -243,8 +243,24 @@
             "available": false
           },
           {
+            "date": "2022-03-18",
+            "available": false
+          },
+          {
+            "date": "2022-03-19",
+            "available": true
+          },
+          {
             "date": "2022-03-21",
             "available": true
+          },
+          {
+            "date": "2022-03-22",
+            "available": false
+          },
+          {
+            "date": "2022-03-28",
+            "available": false
           }
         ]
       }
