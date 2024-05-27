@@ -1000,8 +1000,22 @@ main #eventsList article :where(.seeMore, .seeLess):hover {
 main #eventsList article .otherDataDiv {
   padding: 5px;
   width: 100%;
-  display: none;
+}
+main #eventsList article .otherDataDiv .eventDateDiv {
+  margin-top: 15px;
+  overflow: hidden;
   overflow-x: scroll;
+}
+main #eventsList article .otherDataDiv .eventDateDiv::-webkit-scrollbar {
+  width: 20px;
+}
+main #eventsList article .otherDataDiv .eventDateDiv::-webkit-scrollbar-track {
+  background: var(--color2);
+}
+main #eventsList article .otherDataDiv .eventDateDiv::-webkit-scrollbar-thumb {
+  background-color: var(--colorText);
+  border-radius: 20px;
+  border: solid 7px var(--color2);
 }
 main #eventsList article .otherDataDiv blockquote {
   font-weight: 500;
@@ -1011,18 +1025,6 @@ main #eventsList article .otherDataDiv .eventAuthor {
 }
 main #eventsList article .otherDataDiv .eventDateDiv {
   margin-top: 15px;
-}
-main #eventsList article .otherDataDiv::-webkit-scrollbar {
-  width: 20px;
-  background-color: var(--colorBackgroundt);
-}
-main #eventsList article .otherDataDiv::-webkit-scrollbar-track {
-  background-color: var(--colorBackgroundt);
-}
-main #eventsList article .otherDataDiv::-webkit-scrollbar-thumb {
-  background-color: var(--colorText);
-  border-radius: 20px;
-  border: solid 7px var(--colorBackground);
 }
 main #eventsList article:hover {
   border: solid 2px var(--color1);

@@ -94,9 +94,23 @@ main {
             .otherDataDiv {
                 padding:5px;
                 width: 100%;
-                display: none;
-                overflow-x: scroll;
                 
+                .eventDateDiv {
+                    margin-top: 15px;
+                    overflow: hidden;
+                    overflow-x: scroll;
+                }
+                .eventDateDiv::-webkit-scrollbar {
+                    width: 20px;
+                }
+                .eventDateDiv::-webkit-scrollbar-track {
+                    background: var(--color2);
+                }
+                .eventDateDiv::-webkit-scrollbar-thumb {
+                    background-color: var(--colorText);
+                    border-radius: 20px;
+                    border:solid 7px var(--color2);
+                }
 
                 blockquote {
                     font-weight: 500;
@@ -111,19 +125,6 @@ main {
                 }
             }
 
-            .otherDataDiv::-webkit-scrollbar {
-                width: 20px;
-                background-color: var(--colorBackgroundt);
-            }
-            .otherDataDiv::-webkit-scrollbar-track {
-                background-color: var(--colorBackgroundt);
-            
-            }
-            .otherDataDiv::-webkit-scrollbar-thumb {
-                background-color: var(--colorText);
-                border-radius: 20px;
-                border:solid 7px var(--colorBackground);
-            }
         }
 
         article:hover {

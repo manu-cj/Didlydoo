@@ -2,8 +2,9 @@ import updateAttend from "../api/updateAttend.js";
 import { createDiv } from "./functions.js"
 
 export function table(dates, parent, id) {
+    const table = createDiv('table',parent)
 
-    const head = createDiv('thead', parent)
+    const head = createDiv('thead', table)
     
     const datesArray = [];
     dates.forEach(element => {
@@ -20,7 +21,7 @@ export function table(dates, parent, id) {
         createDiv('th', thRow, formattedDate)
     });
 
-    const tableBody = createDiv('tbody', parent)
+    const tableBody = createDiv('tbody', table)
 
     const names = dates[0].attendees
     const checkboxes = []

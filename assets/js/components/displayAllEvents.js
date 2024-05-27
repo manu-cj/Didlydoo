@@ -15,7 +15,7 @@ const displayAllEvents = (datas) => {
         const otherDatasDiv = document.createElement('div');
         const eventDescription = document.createElement('blockquote');
         const eventAuthor = document.createElement('cite');
-        const eventDateDiv = document.createElement('table');
+        const eventDateDiv = document.createElement('div');
         
         table(data.dates,eventDateDiv,data.id, null);
     
