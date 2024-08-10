@@ -24,3 +24,8 @@ https://manu-cj.github.io/Didlydoo/
 - **JavaScript** : Pour la logique de l'application et les interactions utilisateur.
 - **API Node.js** : Utilisée pour interagir avec le backend existant.
 
+## Collaborateurs
+
+- [Javadaller](https://github.com/javadaller)
+- [Lynekpng](https://github.com/lynekpng)
+- [manu-cj](https://github.com/manu-cj)
