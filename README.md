@@ -6,7 +6,7 @@ https://manu-cj.github.io/Didlydoo/
 
 ## Description
 
-**Gestionnaire d'Événements** est une application web pour la gestion d'événements, développée en frontend avec une utilisation de Sass pour les styles. Ce projet se base sur un backend Node.js existant, qui fournit les API nécessaires pour gérer les événements, les utilisateurs et les inscriptions. L'interface utilisateur permet aux utilisateurs de consulter, créer et gérer des événements en toute simplicité.
+**Didlydoo** est une application web pour la gestion d'événements, développée en frontend avec une utilisation de Sass pour les styles. Ce projet se base sur un backend Node.js existant, qui fournit les API nécessaires pour gérer les événements, les utilisateurs et les inscriptions. L'interface utilisateur permet aux utilisateurs de consulter, créer et gérer des événements en toute simplicité.
 
 ## Fonctionnalités
 
